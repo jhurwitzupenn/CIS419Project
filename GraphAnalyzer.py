@@ -16,6 +16,11 @@ class GraphAnalyzer(object):
         graphs = self.graphs
         self._ComputeMaxDegreeCentrality(graphs)
         self._ComputeMinDegreeCentrality(graphs)
+        self._ComputeMaxLoadCentrality(graphs)
+        self._ComputeMinLoadCentrality(graphs)
+        self._ComputeAvgClustering(graphs)
+        self._ComputeNodeEdgeRatio(graphs)
+        self._ComputeRadius(graphs)
 
         # Build X
         features = []
@@ -39,3 +44,28 @@ class GraphAnalyzer(object):
         for key in graphs.keys():
             degrees = networkx.degree_centrality(graphs[key])
             self.featuresByGraph[key].append(min(degrees.iteritems())[1])
+
+    def _ComputeMaxLoadCentrality(self, graphs):
+        for key in graphs.keys():
+            degrees = networkx.load_centrality(graphs[key])
+            self.featuresByGraph[key].append(max(degrees.iteritems())[1])
+
+    def _ComputeMinLoadCentrality(self, graphs):
+        for key in graphs.keys():
+            degrees = networkx.load_centrality(graphs[key])
+            self.featuresByGraph[key].append(min(degrees.iteritems())[1])
+
+    def _ComputeAvgClustering(self, graphs):
+        for key in graphs.keys():
+            self.featuresByGraph[key].append(
+                networkx.average_clustering(graphs[key]))
+
+    def _ComputeNodeEdgeRatio(self, graphs):
+        for key in graphs.keys():
+            graph = graphs[key]
+            self.featuresByGraph[key].append(
+                float(len(graph.nodes())) / len(graph.edges()))
+
+    def _ComputeRadius(self, graphs):
+        for key in graphs.keys():
+            self.featuresByGraph[key].append(networkx.radius(graphs[key]))
