@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Example Paper for Penn Machine Learning - Based on ICML 2014 template %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% If you rely on Latex2e packages, like most modern people use this:
+\documentclass{article}
+
+% use Times
+\usepackage{times}
+% For figures
+\usepackage{graphicx} % more modern
+%\usepackage{epsfig} % less modern
+\usepackage{subfigure} 
+
+% For citations
+\usepackage{natbib}
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% As of 2011, we use the hyperref package to produce hyperlinks in the
+% resulting PDF.  If this breaks your system, please commend out the
+% following usepackage line and replace \usepackage{icml2014} with
+% \usepackage[nohyperref]{icml2014} above.
+\usepackage{hyperref}
+
+% Packages hyperref and algorithmic misbehave sometimes.  We can fix
+% this with the following command.
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% Employ the following version of the ``usepackage'' statement for
+% submitting the draft version of the paper for review.  This will set
+% the note in the first column to ``Under review.  Do not distribute.''
+\usepackage{pennML2015} 
+
+
+% The \icmltitle you define below is probably too long as a header.
+% Therefore, a short form for the running title is supplied here:
+\icmltitlerunning{Abraham, Hurwitz, Sankar}
+
+\begin{document} 
+
+\twocolumn[
+\icmltitle{Project Status Report for CIS 419\\Selecting the Optimal Shortest Path Algorithm for Road Networks}
+
+% It is OKAY to include author information, even for blind
+% submissions: the style file will automatically remove it for you
+% unless you've provided the [accepted] option to the icml2014
+% package.
+\icmlauthor{Reuben Abraham}{reubenab@wharton.upenn.edu}
+\icmlauthor{Jordan Hurwitz}{nsankar@wharton.upenn.edu}
+\icmlauthor{Nivedita Sankar}{jhurwitz@sas.upenn.edu}
+
+% You may provide any keywords that you 
+% find helpful for describing your paper; these are used to populate 
+% the "keywords" metadata in the PDF but will not be shown in the document
+\icmlkeywords{boring formatting information, machine learning}
+
+\vskip 0.3in
+]
+
+\begin{abstract} 
+Researchers have found that over 1,000 lives are lost every year as a result of delays in emergency response times. Fast detection of the shortest possible path between a source and endpoint could contribute significantly towards increasing the ability of emergency responders to save lives. To achieve this goal, a machine learning classifier can be used to detect important features of a particular road network and determine and implement the most efficient shortest path algorithm. We explore the viability of this option in this paper by training a classifier to choose between variations of Djikstra’s, Bellman-Ford-Moore, and Gordon Growth shortest path algorithms. We find that our ultimate choice of classifier, a multiclass ADABoost classifier, showed promise in quickly identifying an appropriate shortest path algorithm to use, such that an appropriate path is output. 
+\end{abstract} 
+
+
+
+\section{Project }
+
+\subsection{Introduction}
+
+Current research efforts in the area of shortest path algorithms have focused on specific types of graphs, and suggest cases for when a specific algorithm should be used based on characteristics of the input graph. This means today, users must either know about specific features of the graph to decide which algorithm to use, or they must choose an algorithm at random. 
+
+Often, Dijkstra’s shortest path algorithm is used since it is the most general, but alternatives may outperform this choice on select input graphs. However, depending on the feature vectors specific to any given instance of a graph, another algorithm may more efficiently produce the shortest path; for the purposes of this project, we considered variations of Djikstra’s, Bellman-Ford-Moore, and Graph Growth shortest path algorithms. 
+
+We plan to use a multiclass ADABoost classifier, trained on real-world road network data, to determine the most efficient shortest path algorithm for an arbitrary road network, and output the optimal shortest path algorithm. The training and test datasets are sourced from the Dryad Digital Repository under the title \textit{Barrington-Leigh-Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-GML-format}. An overview of our progress thus far and the work remaining to be done is written below.
+
+\subsection{Work Completed to Date}
+
+A first step in the project was determining the the file format for our graph data. Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We ended up choosing Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse. Furthermore, there is a lot of graph data available in this format and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website \yrcite{Newman13} from which to test our parser, and eventually to test our feature extraction. 
+
+The next step was to identify datasets on which to train our classifier. These datasets needed to be representative of the potential test data that might be passed in to the classifier for predictions after it has been trained. The motivation for the classifier was to provide emergency services and map services with the fastest algorithm to use to compute the shortest path for a given source and destination, so the classifier would be primarily used with graphs of road data. Therefore, to ensure that our training data and potential test data were drawn from the same overall sample, which in this case is roads, we realized we needed road data for our test data. We obtained this data from the Dryad Digital Repository under the title \textit{Barrington-Leigh-Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-GML-format}, as specified in the introduction. There were hundreds of graphs, each with thousands of nodes, all in GML format.
+
+Next, we parsed this graph data in order to obtain feature vectors that represent each graph. We used the \textit{NetworkX} package to obtain most of the following features of our graphs and then combined all of the feature vectors into a 2D \textit{numpy} array, where each column represented values of a particular feature and each row was a different graph. We will then pass this numpy array as the X argument in the fit method of our classifier. The features we have computed so far are:
+
+\begin{enumerate}
+\item Maximum Degree Centrality
+\item Minimum Degree Centrality
+\item Maximum Load Centrality
+\item Average Clustering
+\item Node-to-Edge Ratio
+\item Radius
+\end{enumerate}
+
+We may trim this feature set later on based on the most important features to speed up prediction time, since time is critical for the applications we are considering.
+
+Initially we will use multi-class ADABoosting with Decision Trees, as it has been called the``best off-the-shelf classifier in the world'' \cite{Zhu06}. We believe it would be a particularly good fit for our purposes because it requires only a relatively general base learning algorithm. As we continue, we plan to sample different classifiers, keeping in mind that our target application is to find the shortest geographical path between two points for emergency responders. Therefore, we know that future test data will conform to the road data we used for testing. It is important to remember that certain classifiers, such as Naive Bayes, would be unsuitable since many of the features we have computed over the graphs may be correlated with each other. 
+
+\subsection{Work Remaining}
+First, we need to finish writing the various different Shortest Path algorithms and compute the running times of each algorithm for each graph in our training set, and then assign each graph its true label based on which algorithm runs fastest.
+
+We also still have to finalize our choice of classifier based on our target dataset. Although we have used the ADABoost classifier up to this point, we will sample other classifiers with our base learning algorithm to determine the best possible pairing. Once we have decided on a classifier, we will need to tune its parameters using GridSearch over the training set based on the true labels of the training set. 
+
+Having chosen this classifier, we will compare the prediction results of our classifier on our training set with the true labels for the training data. This comparison will enable us to obtain evaluation metrics including accuracy, precision, and recall, against which to score our classifier and determine its viability as a solution for emergency responders.
+
+We will then compile a series of various figures, such as ROC curves, to display the performance of our algorithm on various test instances. Beyond just the accuracy of our classifier, an important metric for the application we are considering is runtime, so we must take this into account when deciding on a specific classifier.
+
+
+\bibliography{example_paper}
+\bibliographystyle{icml2014}
+
+
+\end{document} 
+
+
+% This document was modified from the file originally made available by
+% Pat Langley and Andrea Danyluk for ICML-2K. This version was
+% created by Lise Getoor and Tobias Scheffer, it was slightly modified  
+% from the 2010 version by Thorsten Joachims & Johannes Fuernkranz, 
+% slightly modified from the 2009 version by Kiri Wagstaff and 
+% Sam Roweis's 2008 version, which is slightly modified from 
+% Prasad Tadepalli's 2007 version which is a lightly 
+% changed version of the previous year's version by Andrew Moore, 
+% which was in turn edited from those of Kristian Kersting and 
+% Codrina Lauth. Alex Smola contributed to the algorithmic style files.  
