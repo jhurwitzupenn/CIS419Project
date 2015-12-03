@@ -45,4 +45,3 @@ def trainClassifiers(X, Y):
 
     return svm_rbf_model, svm_sig_model, dtree_model
 
-
