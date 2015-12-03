@@ -10,17 +10,16 @@ Adapted from scikit_learn documentation.
 """
 print(__doc__)
 
-import numpy as np
 from sklearn import svm, datasets, grid_search, tree
-from sklearn.metrics import accuracy_score
+from sklearn import metrics
 import time
 
 def trainClassifiers(X, Y):
     C = 0.01
     gam = 0.01
     # grid search over these to find parameters
-    svm_rbf_model = svm.SVC(C = C, kernel='rbf', gamma=gam)
-    svm_sig_model = svm.SVC(C = C, kernel='sigmoid', gamma=gam)
+    svm_rbf_model = svm.SVC(C=C, kernel='rbf', gamma=gam)
+    svm_sig_model = svm.SVC(C=C, kernel='sigmoid', gamma=gam)
     dtree_model = tree.DecisionTreeClassifier(max_depth=3)
 
     # fit the models
@@ -86,4 +85,3 @@ def makePredictions(X, Y, rbf_model, sig_model, dtree_model):
     print "SVM RBF Recall Score: " + str(rbf_recall)
     print "SVM Sigmoid Recall Score: " + str(sig_recall)
     print "DecisionTree Recall Score: " + str(dtree_recall)
-
