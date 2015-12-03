@@ -25,7 +25,7 @@ def trainClassifiers(X, Y):
 
     # fit the models
     print "Training the SVM RBF model..."
-    rbf_train_time = time.clock()
+    rbf_train_time = time.time()
     svm_rbf_model.fit(X, Y)
     rbf_train_time = time.clock() - rbf_train_time
 
@@ -44,4 +44,46 @@ def trainClassifiers(X, Y):
     print "DecisionTree Training time: " + str(dtree_train_time)
 
     return svm_rbf_model, svm_sig_model, dtree_model
+
+def makePredictions(X, Y, rbf_model, sig_model, dtree_model):
+    print "Predicting with the SVM RBF model..."
+    rbf_predict_time = time.time()
+    Ypred_rbf = rbf_model.predict(X)
+    rbf_predict_time = time.clock() - rbf_predict_time
+
+    print "Predicting with the SVM Sigmoid model..."
+    sig_predict_time = time.clock()
+    Ypred_sig = sig_model.predict(X)
+    sig_predict_time = time.clock() - sig_predict_time
+
+    print "Predicting with the SVM Sigmoid model..."
+    dtree_predict_time = time.clock()
+    Ypred_dtree = sig_model.predict(X)
+    dtree_predict_time = time.clock() - dtree_predict_time
+
+    rbf_accuracy = metrics.accuracy_score(Y, Ypred_rbf)
+    sig_accuracy = metrics.accuracy_score(Y, Ypred_sig)
+    dtree_accuracy = metrics.accuracy_score(Y, Ypred_dtree)
+    rbf_precision = metrics.precision_score(Y, Ypred_rbf, average='macro')
+    sig_precision = metrics.precision_score(Y, Ypred_sig, average='macro')
+    dtree_precision = metrics.precision_score(Y, Ypred_dtree, average='macro')
+    rbf_recall = metrics.recall_score(Y, Ypred_rbf, average='macro')
+    sig_recall = metrics.recall_score(Y, Ypred_sig, average='macro')
+    dtree_recall = metrics.recall_score(Y, Ypred_dtree, average='macro')
+
+    print "SVM RBF Prediction time: " + str(rbf_predict_time)
+    print "SVM Sigmoid Prediction time: " + str(sig_predict_time)
+    print "DecisionTree Prediction time: " + str(dtree_predict_time)
+
+    print "SVM RBF Accuracy Score: " + str(rbf_accuracy)
+    print "SVM Sigmoid Accuracy Score: " + str(sig_accuracy)
+    print "DecisionTree Accuracy Score: " + str(dtree_accuracy)
+
+    print "SVM RBF Precision Score: " + str(rbf_precision)
+    print "SVM Sigmoid Precision Score: " + str(sig_precision)
+    print "DecisionTree Precision Score: " + str(dtree_precision)
+
+    print "SVM RBF Recall Score: " + str(rbf_recall)
+    print "SVM Sigmoid Recall Score: " + str(sig_recall)
+    print "DecisionTree Recall Score: " + str(dtree_recall)
 
