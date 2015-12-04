@@ -1,3 +1,9 @@
+from sklearn import svm, tree
+from sklearn import metrics
+import time
+from sklearn.externals.six import StringIO
+import pydot
+
 """
 =====================================
 Train Shortest Path Classifiers
@@ -10,9 +16,6 @@ Adapted from scikit_learn documentation.
 """
 print(__doc__)
 
-from sklearn import svm, datasets, grid_search, tree
-from sklearn import metrics
-import time
 
 def trainClassifiers(X, Y):
     C = 0.01
@@ -38,11 +41,17 @@ def trainClassifiers(X, Y):
     dtree_model.fit(X, Y)
     dtree_train_time = time.clock() - dtree_train_time
 
+    dot_data = StringIO()
+    tree.export_graphviz(dtree_model, out_file=dot_data)
+    graph = pydot.graph_from_dot_data(dot_data.getvalue())
+    graph.write_pdf("../dtree.pdf")
+
     print "SVM RBF Training time: " + str(rbf_train_time)
     print "SVM Sigmoid Training time: " + str(sig_train_time)
     print "DecisionTree Training time: " + str(dtree_train_time)
 
     return svm_rbf_model, svm_sig_model, dtree_model
+
 
 def makePredictions(X, Y, rbf_model, sig_model, dtree_model):
     print "Predicting with the SVM RBF model..."
