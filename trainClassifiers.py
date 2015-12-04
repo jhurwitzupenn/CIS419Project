@@ -73,8 +73,8 @@ def SVMRBF(X, Y, Xtest, Ytest):
     rbf_predict_time = time.time() - rbf_predict_time
 
     rbf_accuracy = metrics.accuracy_score(Ytest, Ypred_rbf)
-    rbf_precision = metrics.precision_score(Ytest, Ypred_rbf, average='macro')
-    rbf_recall = metrics.recall_score(Ytest, Ypred_rbf, average='macro')
+    rbf_precision = metrics.precision_score(Ytest, Ypred_rbf, average='binary')
+    rbf_recall = metrics.recall_score(Ytest, Ypred_rbf, average='binary')
 
     print "SVM RBF Prediction time: " + str(rbf_predict_time)
     print "SVM RBF Accuracy Score: " + str(rbf_accuracy)
@@ -101,8 +101,8 @@ def SVMSig(X, Y, Xtest, Ytest):
     sig_predict_time = time.time() - sig_predict_time
 
     sig_accuracy = metrics.accuracy_score(Ytest, Ypred_sig)
-    sig_precision = metrics.precision_score(Ytest, Ypred_sig, average='macro')
-    sig_recall = metrics.recall_score(Ytest, Ypred_sig, average='macro')
+    sig_precision = metrics.precision_score(Ytest, Ypred_sig, average='binary')
+    sig_recall = metrics.recall_score(Ytest, Ypred_sig, average='binary')
 
     print "SVM Sigmoid Prediction time: " + str(sig_predict_time)
     print "SVM Sigmoid Accuracy Score: " + str(sig_accuracy)
@@ -131,8 +131,8 @@ def DTree(X, Y, Xtest, Ytest):
     dtree_predict_time = time.time() - dtree_predict_time
 
     dtree_accuracy = metrics.accuracy_score(Ytest, Ypred_dtree)
-    dt_precision = metrics.precision_score(Ytest, Ypred_dtree, average='macro')
-    dtree_recall = metrics.recall_score(Ytest, Ypred_dtree, average='macro')
+    dt_precision = metrics.precision_score(Ytest, Ypred_dtree, average='binary')
+    dtree_recall = metrics.recall_score(Ytest, Ypred_dtree, average='binary')
 
     print "Decision Tree Prediction time: " + str(dtree_predict_time)
     print "Decision Tree Accuracy Score: " + str(dtree_accuracy)
