@@ -58,7 +58,7 @@ class GraphAnalyzer(object):
                 while tgt == src:
                     tgt = np.random.randint(0, n) + 1
 
-                dijkstraTime = time.clock()
+                dijkstraTime = time.time()
                 try:
                     networkx.dijkstra_path(graph, src, tgt)
                 except:
@@ -66,17 +66,17 @@ class GraphAnalyzer(object):
                     i -= 1
                     continue
 
-                dijkstraTime = time.clock() - dijkstraTime
+                dijkstraTime = time.time() - dijkstraTime
                 dijkstraTimes[i] = dijkstraTime
 
-                biDijkstraTime = time.clock()
+                biDijkstraTime = time.time()
                 networkx.bidirectional_dijkstra(graph, src, tgt)
-                biDijkstraTime = time.clock() - biDijkstraTime
+                biDijkstraTime = time.time() - biDijkstraTime
                 biDijkstraTimes[i] = biDijkstraTime
 
-                aStarTime = time.clock()
+                aStarTime = time.time()
                 networkx.astar_path(graph, src, tgt)
-                aStarTime = time.clock() - aStarTime
+                aStarTime = time.time() - aStarTime
                 aStarTimes[i] = aStarTime
 
             meanDijkstra = np.mean(dijkstraTimes)
