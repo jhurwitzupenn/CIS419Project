@@ -9,8 +9,8 @@ g.LabelFeatures()
 X = g.features
 Y = g.labels
 
-svm_rbf = trainClassifiers.trainSVMRBF(X, Y)
-svm_sig = trainClassifiers.trainSVMSig(X, Y)
-dtree = trainClassifiers.trainDTree(X, Y)
+trainClassifiers.SVMRBF(X, Y, X, Y)
+trainClassifiers.SVMSig(X, Y)
+trainClassifiers.DTree(X, Y)
 
-trainClassifiers.makePredictions(X, Y, svm_rbf, svm_sig, dtree)
+# trainClassifiers.makePredictions(X, Y, svm_rbf, svm_sig, dtree)

@@ -53,7 +53,7 @@ def trainClassifiers(X, Y):
     return svm_rbf_model, svm_sig_model, dtree_model
 
 
-def trainSVMRBF(X, Y):
+def SVMRBF(X, Y, Xtest, Ytest):
     C = 0.01
     gam = 0.01
     # grid search over these to find parameters
@@ -67,10 +67,22 @@ def trainSVMRBF(X, Y):
 
     print "SVM RBF Training time: " + str(rbf_train_time)
 
-    return svm_rbf_model
+    print "Predicting with the SVM RBF model..."
+    rbf_predict_time = time.time()
+    Ypred_rbf = svm_rbf_model.predict(X)
+    rbf_predict_time = time.time() - rbf_predict_time
+
+    rbf_accuracy = metrics.accuracy_score(Ytest, Ypred_rbf)
+    rbf_precision = metrics.precision_score(Ytest, Ypred_rbf, average='macro')
+    rbf_recall = metrics.recall_score(Ytest, Ypred_rbf, average='macro')
+
+    print "SVM RBF Prediction time: " + str(rbf_predict_time)
+    print "SVM RBF Accuracy Score: " + str(rbf_accuracy)
+    print "SVM RBF Precision Score: " + str(rbf_precision)
+    print "SVM RBF Recall Score: " + str(rbf_recall)
 
 
-def trainSVMSig(X, Y):
+def SVMSig(X, Y, Xtest, Ytest):
     C = 0.01
     gam = 0.01
     # grid search over these to find parameters
@@ -83,10 +95,22 @@ def trainSVMSig(X, Y):
 
     print "SVM Sigmoid Training time: " + str(sig_train_time)
 
-    return svm_sig_model
+    print "Predicting with the SVM Sigmoid model..."
+    sig_predict_time = time.time()
+    Ypred_sig = svm_sig_model.predict(X)
+    sig_predict_time = time.time() - sig_predict_time
+
+    sig_accuracy = metrics.accuracy_score(Ytest, Ypred_sig)
+    sig_precision = metrics.precision_score(Ytest, Ypred_sig, average='macro')
+    sig_recall = metrics.recall_score(Ytest, Ypred_sig, average='macro')
+
+    print "SVM Sigmoid Prediction time: " + str(sig_predict_time)
+    print "SVM Sigmoid Accuracy Score: " + str(sig_accuracy)
+    print "SVM Sigmoid Precision Score: " + str(sig_precision)
+    print "SVM Sigmoid Recall Score: " + str(sig_recall)
 
 
-def trainDTree(X, Y):
+def DTree(X, Y, Xtest, Ytest):
     dtree_model = tree.DecisionTreeClassifier(max_depth=3)
 
     print "Training the DecisionTree model..."
@@ -101,24 +125,36 @@ def trainDTree(X, Y):
 
     print "DecisionTree Training time: " + str(dtree_train_time)
 
-    return dtree_model
+    print "Predicting with the Decision Tree model..."
+    dtree_predict_time = time.time()
+    Ypred_dtree = dtree_model.predict(X)
+    dtree_predict_time = time.time() - dtree_predict_time
+
+    dtree_accuracy = metrics.accuracy_score(Ytest, Ypred_dtree)
+    dt_precision = metrics.precision_score(Ytest, Ypred_dtree, average='macro')
+    dtree_recall = metrics.recall_score(Ytest, Ypred_dtree, average='macro')
+
+    print "Decision Tree Prediction time: " + str(dtree_predict_time)
+    print "Decision Tree Accuracy Score: " + str(dtree_accuracy)
+    print "Decision Tree Precision Score: " + str(dt_precision)
+    print "Decision Tree Recall Score: " + str(dtree_recall)
 
 
 def makePredictions(X, Y, rbf_model, sig_model, dtree_model):
     print "Predicting with the SVM RBF model..."
     rbf_predict_time = time.time()
     Ypred_rbf = rbf_model.predict(X)
-    rbf_predict_time = time.clock() - rbf_predict_time
+    rbf_predict_time = time.time() - rbf_predict_time
 
     print "Predicting with the SVM Sigmoid model..."
-    sig_predict_time = time.clock()
+    sig_predict_time = time.time()
     Ypred_sig = sig_model.predict(X)
-    sig_predict_time = time.clock() - sig_predict_time
+    sig_predict_time = time.time() - sig_predict_time
 
     print "Predicting with the SVM Sigmoid model..."
-    dtree_predict_time = time.clock()
+    dtree_predict_time = time.time()
     Ypred_dtree = sig_model.predict(X)
-    dtree_predict_time = time.clock() - dtree_predict_time
+    dtree_predict_time = time.time() - dtree_predict_time
 
     rbf_accuracy = metrics.accuracy_score(Y, Ypred_rbf)
     sig_accuracy = metrics.accuracy_score(Y, Ypred_sig)
