@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  3 DEC 2015 23:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  5 DEC 2015 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -374,18 +374,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 76.
 
-Package natbib Warning: Citation `Newman13' on page 1 undefined on input line 8
-3.
-
-
-Underfull \hbox (badness 4291) in paragraph at lines 85--86
-\OT1/ptm/m/n/10 Dig-i-tal Repos-i-tory un-der the ti-tle \OT1/ptm/m/it/10 Barri
-ngton-Leigh-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-\OT1/ptm/m/it/10 Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-
+Underfull \hbox (badness 1248) in paragraph at lines 85--86
+[]\OT1/ptm/m/n/10 The train-ing and test datasets are ex-tracted from the
  []
 
 
@@ -396,37 +386,40 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-No file final_paper.bbl.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: There were undefined citations.
+ [2]
+(./final_paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
+ [3
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
-[2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
  (./final_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 135.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
 Package rerunfilecheck Info: File `final_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
  ) 
 Here is how much of TeX's memory you used:
- 6196 strings out of 493315
- 89901 string characters out of 6137904
- 192085 words of memory out of 5000000
- 9564 multiletter control sequences out of 15000+600000
+ 6205 strings out of 493315
+ 90050 string characters out of 6137904
+ 192187 words of memory out of 5000000
+ 9570 multiletter control sequences out of 15000+600000
  16012 words of font info for 30 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 31i,11n,45p,1176b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,11n,45p,1176b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dis
-t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_paper.pdf (2 pages, 62653 bytes).
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on final_paper.pdf (3 pages, 74495 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 25 named destinations out of 1000 (max. 500000)
+ 72 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 26 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
