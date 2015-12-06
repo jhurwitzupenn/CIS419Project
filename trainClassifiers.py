@@ -18,10 +18,10 @@ Author: Reuben Abrahamn, Nivedita Sankar, Jordan Hurwitz
 Adapted from scikit_learn documentation.
 
 """
-print(__doc__)
 
 
-def SVM(X, Y, Xtest, Ytest):
+def SVM(X, Y, XTest, YTest):
+    print '-----------------------------------------------------'
     # grid search over these to find parameters
     CList = [.001, .003, .01, .03, .1, .3, 1, 3, 6, 10, 15, 30, 40]
     gammaList = [.001, .003, .01, .03, .1, .3, 1, 2, 3, 4, 5, 6, 7]
@@ -33,54 +33,44 @@ def SVM(X, Y, Xtest, Ytest):
     # fit the models
     rbf_grid.fit(X, Y)
 
-    print "Predicting with the SVM RBF model..."
-    rbf_predict_time = time.time()
-    Ypred_rbf = rbf_grid.predict(X)
-    print Y
-    print Ypred_rbf
-    rbf_predict_time = time.time() - rbf_predict_time
+    print("The best parameters are %s with a score of %0.2f"
+          % (rbf_grid.best_params_, rbf_grid.best_score_))
 
-    rbf_accuracy = metrics.accuracy_score(Ytest, Ypred_rbf)
-    rbf_precision = metrics.precision_score(Ytest, Ypred_rbf, average='binary')
-    rbf_recall = metrics.recall_score(Ytest, Ypred_rbf, average='binary')
+    print "Computing training statistics"
+    rbf_predict_time_training = time.time()
+    Ypred_rbf_training = rbf_grid.predict(X)
+    rbf_predict_time_training = time.time() - rbf_predict_time_training
 
-    print "SVM RBF Prediction time: " + str(rbf_predict_time)
-    print "SVM RBF Accuracy Score: " + str(rbf_accuracy)
-    print "SVM RBF Precision Score: " + str(rbf_precision)
-    print "SVM RBF Recall Score: " + str(rbf_recall)
+    rbf_accuracy_training = metrics.accuracy_score(Y, Ypred_rbf_training)
+    rbf_precision_training = metrics.precision_score(Y, Ypred_rbf_training,
+                                                     average='binary')
+    rbf_recall_training = metrics.recall_score(Y, Ypred_rbf_training,
+                                               average='binary')
 
+    print "SVM RBF training prediction time: " + str(rbf_predict_time_training)
+    print "SVM RBF training accuracy Score: " + str(rbf_accuracy_training)
+    print "SVM RBF training precision Score: " + str(rbf_precision_training)
+    print "SVM RBF training recall Score: " + str(rbf_recall_training)
 
-def SVMSig(X, Y, Xtest, Ytest):
-    C = 0.01
-    gam = 0.01
-    # grid search over these to find parameters
-    svm_sig_model = svm.SVC(C=C, kernel='sigmoid', gamma=gam)
+    print "Computing testing statistics"
+    rbf_predict_time_test = time.time()
+    Ypred_rbf_test = rbf_grid.predict(XTest)
+    rbf_predict_time_test = time.time() - rbf_predict_time_test
 
-    print "Training the SVM Sigmoid model..."
-    sig_train_time = time.time()
-    svm_sig_model.fit(X, Y)
-    sig_train_time = time.time() - sig_train_time
+    rbf_accuracy_test = metrics.accuracy_score(YTest, Ypred_rbf_test)
+    rbf_precision_test = metrics.precision_score(YTest, Ypred_rbf_test,
+                                                 average='binary')
+    rbf_recall_test = metrics.recall_score(YTest, Ypred_rbf_test,
+                                           average='binary')
 
-    print "SVM Sigmoid Training time: " + str(sig_train_time)
-
-    print "Predicting with the SVM Sigmoid model..."
-    sig_predict_time = time.time()
-    Ypred_sig = svm_sig_model.predict(X)
-    sig_predict_time = time.time() - sig_predict_time
-
-    sig_accuracy = metrics.accuracy_score(Ytest, Ypred_sig)
-    sig_precision = metrics.precision_score(Ytest, Ypred_sig, average='binary')
-    sig_recall = metrics.recall_score(Ytest, Ypred_sig, average='binary')
-
-    print "SVM Sigmoid Prediction time: " + str(sig_predict_time)
-    print "SVM Sigmoid Accuracy Score: " + str(sig_accuracy)
-    print "SVM Sigmoid Precision Score: " + str(sig_precision)
-    print "SVM Sigmoid Recall Score: " + str(sig_recall)
+    print "SVM RBF test prediction time: " + str(rbf_predict_time_test)
+    print "SVM RBF test accuracy Score: " + str(rbf_accuracy_test)
+    print "SVM RBF test precision Score: " + str(rbf_precision_test)
+    print "SVM RBF test recall Score: " + str(rbf_recall_test)
 
 
-def DTree(X, Y, Xtest, Ytest):
-    print "Training the DecisionTree model..."
-
+def DTree(X, Y, XTest, YTest):
+    print '-----------------------------------------------------'
     # dot_data = StringIO()
     # tree.export_graphviz(dtree_model, out_file=dot_data)
     # graph = pydot.graph_from_dot_data(dot_data.getvalue())
@@ -94,19 +84,37 @@ def DTree(X, Y, Xtest, Ytest):
     print("The best parameters are %s with a score of %0.2f"
           % (tree_grid.best_params_, tree_grid.best_score_))
 
-    print "Predicting with the Decision Tree model..."
-    dtree_predict_time = time.time()
-    Ypred_dtree = tree_grid.predict(X)
-    dtree_predict_time = time.time() - dtree_predict_time
+    print "Computing training statistics"
+    dtree_predict_time_training = time.time()
+    Ypred_dtree_training = tree_grid.predict(X)
+    dtree_predict_time_training = time.time() - dtree_predict_time_training
 
-    dtree_accuracy = metrics.accuracy_score(Ytest, Ypred_dtree)
-    dt_precision = metrics.precision_score(Ytest, Ypred_dtree, average='binary')
-    dtree_recall = metrics.recall_score(Ytest, Ypred_dtree, average='binary')
+    dtree_accuracy_training = metrics.accuracy_score(Y, Ypred_dtree_training)
+    dt_precision_training = metrics.precision_score(Y, Ypred_dtree_training,
+                                                    average='binary')
+    dtree_recall_training = metrics.recall_score(Y, Ypred_dtree_training,
+                                                 average='binary')
 
-    print "Decision Tree Prediction time: " + str(dtree_predict_time)
-    print "Decision Tree Accuracy Score: " + str(dtree_accuracy)
-    print "Decision Tree Precision Score: " + str(dt_precision)
-    print "Decision Tree Recall Score: " + str(dtree_recall)
+    print "DT training prediction time: " + str(dtree_predict_time_training)
+    print "DT training accuracy Score: " + str(dtree_accuracy_training)
+    print "DT training precision Score: " + str(dt_precision_training)
+    print "DT training recall Score: " + str(dtree_recall_training)
+
+    print "Computing testing statistics"
+    dtree_predict_time_test = time.time()
+    Ypred_dtree_test = tree_grid.predict(XTest)
+    dtree_predict_time_test = time.time() - dtree_predict_time_test
+
+    dtree_accuracy_test = metrics.accuracy_score(YTest, Ypred_dtree_test)
+    dt_precision_test = metrics.precision_score(YTest, Ypred_dtree_test,
+                                                average='binary')
+    dtree_recall_test = metrics.recall_score(YTest, Ypred_dtree_test,
+                                             average='binary')
+
+    print "DT test prediction time: " + str(dtree_predict_time_test)
+    print "DT test accuracy Score: " + str(dtree_accuracy_test)
+    print "DT test precision Score: " + str(dt_precision_test)
+    print "DT test recall Score: " + str(dtree_recall_test)
 
 
 def makePredictions(X, Y, rbf_model, sig_model, dtree_model):
