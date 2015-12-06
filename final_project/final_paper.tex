@@ -67,11 +67,11 @@ We implemented a classifier to determine the fastest single-source, single-targe
 
 \section{Introduction}
 
-Current research efforts in the area of shortest path algorithms have focused on specific types of graphs, and suggest cases for when a specific algorithm should be used based on characteristics of the input graph. Researchers F. Benjamin Zhan and Charles E. Noon precomputed key characteristics of real road networks in their work to find the fastest shortest path algorithm \cite{Zhan98} te. However, this means today, users must either know about specific features of the graph to decide which algorithm to use, or they must choose an algorithm at random. 
+Past research efforts in the area of shortest path algorithms in the context of real-world road networks have focused on determining the best general shortest path algorithm. In a study by Zhan and Noon in 1998, a multitude of shortest path algorithms were evaluated on real-world road network data \yrcite{Zhan98}. The paper identified the PAPE graph growth algorithm and variations of Dijkstra as the best general algorithms. However, these results do not take into account the properties of specific graphs. This means today, users must either know about specific features of the graph to decide which algorithm to use, or they must choose an algorithm that works well most of the time.
 
 Often, Dijkstra's shortest path algorithm is used since it is the most general, but alternatives may outperform this choice on select input graphs. However, depending on the feature vectors specific to any given instance of a graph, another algorithm may more efficiently produce the shortest path; for the purposes of this project, we considered variations of Djikstra's, as well as the A$\star$ shortest path algorithm.
 
-We plan to compare the efficiencies of variations of Support Vector Machine and decision tree classifiers, trained on real-world road network data, to determine both the most effective classifier, as well as to triangulate the most efficient shortest path algorithm for an arbitrary road network in working towards the final goal of outputting the optimal shortest path algorithm. 
+We plan to compare the efficiencies of variations of Support Vector Machine and decision tree classifiers, trained on real-world road network data, to determine both the most effective classifier, as well as to triangulate the most efficient shortest path algorithm for an arbitrary road network in working towards the final goal of outputting the optimal shortest path algorithm.
 
 \subsection{Motivation}
 Over 1,000 lives are lost every year as a result of delays in emergency response times \yrcite{Blackwell02}. Fast detection of the shortest possible path between a starting point and an emergency destination could contribute significantly towards increasing the speed of emergency responders and thus, their ability to save lives. Given relevant traffic conditions at any particular point in time, the weights of the input road network could be updated to reflect current conditions and provide the emergency response team with the current shortest path.
@@ -80,11 +80,9 @@ To achieve this goal, machine learning classifier trained to detect important fe
 
 \section{Data Set}
 
-Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We chose Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse. Furthermore, there is a lot of graph data available in this format, and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website from which to test our parser, and eventually to test our feature extraction. 
+Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We chose Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse. Furthermore, there is a lot of graph data available in this format, and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website from which to test our parser, and eventually to test our feature extraction. Unfortunately, our input graphs did not have positional data, so in the case of the $A\star$ algorithm, it was difficult to implement heuristics beyond the defaults defined in the \textit{NetworkX} package.
 
 The training and test datasets are extracted from the U.S. Census Bureau's Topologically Integrated Geographic Encoding and Referencing (TIGER) database, and were sourced from the Dryad Digital Repository under the title \textit{Barrington-Leigh-Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-GML-format}. These data represent real-world street networks, and were output in GML format. Initially, we ran our classifiers on a test dataset of 100 graphs and achieved a maximum accuracy of around 75$\%$, motivating an increase in the size of the dataset. However, we ran into memory errors in trying to parse the 200-graph dataset, leading us to move from batch features to online features.
-
-memory errors, decided to move from batch features to online features. 
 
 \section{Feature Generation}
 
@@ -104,7 +102,7 @@ We further considered Principal Component Analysis for dimensionality reduction,
 
 \subsection{Shortest Path Algorithms}
 
-For our shortest path algorithms, we chose the standard and bidirectional Djikstra's shortest path algorithms as well as the A$\star$ algorithm. All three algorithms are contained within the NetworkX (NX) package, a Python package designed to handle complex networks. We wanted our three algorithms for comparison to be uniform in their implementation, so we could reliably compare the running times for training and predicting our classifiers.
+For our shortest path algorithms, we chose the standard and bidirectional Djikstra's shortest path algorithms as well as the A$\star$ algorithm. All three algorithms are contained within the NetworkX (NX) package, a Python package designed to handle complex networks. We wanted our three algorithms for comparison to be uniform in their implementation, so we could reliably compare the running times for training and predicting our classifiers. 
 
 \subsection{Learning Algorithms} 
 
