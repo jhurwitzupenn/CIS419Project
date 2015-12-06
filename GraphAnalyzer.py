@@ -98,6 +98,7 @@ class GraphAnalyzer(object):
     def ReadGraphs(self, pathToGraphs):
         os.chdir(pathToGraphs)
         for file in glob.glob('*.gml'):
+            print 'Reading file: {0}'.format(file)
             graphName = os.path.splitext(file)[0]
             self.graphs[graphName] = gmlReader.read_gml(file)
             self.featuresByGraph[graphName] = []

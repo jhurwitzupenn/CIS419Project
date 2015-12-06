@@ -1,8 +1,12 @@
-from sklearn import svm, tree
+from sklearn import svm
+from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
+from sklearn.svm import SVC
+from sklearn.grid_search import GridSearchCV
+import numpy as np
 import time
-from sklearn.externals.six import StringIO
-import pydot
+# from sklearn.externals.six import StringIO
+# import pydot
 
 """
 =====================================
@@ -17,59 +21,23 @@ Adapted from scikit_learn documentation.
 print(__doc__)
 
 
-def trainClassifiers(X, Y):
-    C = 0.01
-    gam = 0.01
+def SVM(X, Y, Xtest, Ytest):
     # grid search over these to find parameters
-    svm_rbf_model = svm.SVC(C=C, kernel='rbf', gamma=gam)
-    svm_sig_model = svm.SVC(C=C, kernel='sigmoid', gamma=gam)
-    dtree_model = tree.DecisionTreeClassifier(max_depth=3)
-
-    # fit the models
-    print "Training the SVM RBF model..."
-    rbf_train_time = time.time()
-    svm_rbf_model.fit(X, Y)
-    rbf_train_time = time.clock() - rbf_train_time
-
-    print "Training the SVM Sigmoid model..."
-    sig_train_time = time.clock()
-    svm_sig_model.fit(X, Y)
-    sig_train_time = time.clock() - sig_train_time
-
-    print "Training the DecisionTree model..."
-    dtree_train_time = time.clock()
-    dtree_model.fit(X, Y)
-    dtree_train_time = time.clock() - dtree_train_time
-
-    dot_data = StringIO()
-    tree.export_graphviz(dtree_model, out_file=dot_data)
-    graph = pydot.graph_from_dot_data(dot_data.getvalue())
-    graph.write_pdf("../dtree.pdf")
-
-    print "SVM RBF Training time: " + str(rbf_train_time)
-    print "SVM Sigmoid Training time: " + str(sig_train_time)
-    print "DecisionTree Training time: " + str(dtree_train_time)
-
-    return svm_rbf_model, svm_sig_model, dtree_model
-
-
-def SVMRBF(X, Y, Xtest, Ytest):
-    C = 0.01
-    gam = 0.01
+    CList = [.001, .003, .01, .03, .1, .3, 1, 3, 6, 10, 15, 30, 40]
+    gammaList = [.001, .003, .01, .03, .1, .3, 1, 2, 3, 4, 5, 6, 7]
+    param_grid = [{'C': CList,
+                   'gamma': gammaList,
+                   'kernel': ['rbf', 'sigmoid', 'linear']}]
     # grid search over these to find parameters
-    svm_rbf_model = svm.SVC(C=C, kernel='rbf', gamma=gam)
-
+    rbf_grid = GridSearchCV(SVC(), param_grid=param_grid)
     # fit the models
-    print "Training the SVM RBF model..."
-    rbf_train_time = time.time()
-    svm_rbf_model.fit(X, Y)
-    rbf_train_time = time.time() - rbf_train_time
-
-    print "SVM RBF Training time: " + str(rbf_train_time)
+    rbf_grid.fit(X, Y)
 
     print "Predicting with the SVM RBF model..."
     rbf_predict_time = time.time()
-    Ypred_rbf = svm_rbf_model.predict(X)
+    Ypred_rbf = rbf_grid.predict(X)
+    print Y
+    print Ypred_rbf
     rbf_predict_time = time.time() - rbf_predict_time
 
     rbf_accuracy = metrics.accuracy_score(Ytest, Ypred_rbf)
@@ -111,23 +79,24 @@ def SVMSig(X, Y, Xtest, Ytest):
 
 
 def DTree(X, Y, Xtest, Ytest):
-    dtree_model = tree.DecisionTreeClassifier(max_depth=3)
-
     print "Training the DecisionTree model..."
-    dtree_train_time = time.time()
-    dtree_model.fit(X, Y)
-    dtree_train_time = time.time() - dtree_train_time
 
-    dot_data = StringIO()
-    tree.export_graphviz(dtree_model, out_file=dot_data)
-    graph = pydot.graph_from_dot_data(dot_data.getvalue())
-    graph.write_pdf("../dtree.pdf")
+    # dot_data = StringIO()
+    # tree.export_graphviz(dtree_model, out_file=dot_data)
+    # graph = pydot.graph_from_dot_data(dot_data.getvalue())
+    # graph.write_pdf("../dtree.pdf")
 
-    print "DecisionTree Training time: " + str(dtree_train_time)
+    param_grid = {'max_depth': np.arange(1, 15)}
+
+    tree_grid = GridSearchCV(DecisionTreeClassifier(), param_grid)
+    tree_grid.fit(X, Y)
+
+    print("The best parameters are %s with a score of %0.2f"
+          % (tree_grid.best_params_, tree_grid.best_score_))
 
     print "Predicting with the Decision Tree model..."
     dtree_predict_time = time.time()
-    Ypred_dtree = dtree_model.predict(X)
+    Ypred_dtree = tree_grid.predict(X)
     dtree_predict_time = time.time() - dtree_predict_time
 
     dtree_accuracy = metrics.accuracy_score(Ytest, Ypred_dtree)
