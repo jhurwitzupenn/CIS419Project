@@ -1,7 +1,7 @@
-from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
 from sklearn.svm import SVC
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.grid_search import GridSearchCV
 import numpy as np
 import time
@@ -79,6 +79,50 @@ def DTree(X, Y, XTest, YTest):
     param_grid = {'max_depth': np.arange(1, 15)}
 
     tree_grid = GridSearchCV(DecisionTreeClassifier(), param_grid)
+    tree_grid.fit(X, Y)
+
+    print("The best parameters are %s with a score of %0.2f"
+          % (tree_grid.best_params_, tree_grid.best_score_))
+
+    print "Computing training statistics"
+    dtree_predict_time_training = time.time()
+    Ypred_dtree_training = tree_grid.predict(X)
+    dtree_predict_time_training = time.time() - dtree_predict_time_training
+
+    dtree_accuracy_training = metrics.accuracy_score(Y, Ypred_dtree_training)
+    dt_precision_training = metrics.precision_score(Y, Ypred_dtree_training,
+                                                    average='binary')
+    dtree_recall_training = metrics.recall_score(Y, Ypred_dtree_training,
+                                                 average='binary')
+
+    print "DT training prediction time: " + str(dtree_predict_time_training)
+    print "DT training accuracy Score: " + str(dtree_accuracy_training)
+    print "DT training precision Score: " + str(dt_precision_training)
+    print "DT training recall Score: " + str(dtree_recall_training)
+
+    print "Computing testing statistics"
+    dtree_predict_time_test = time.time()
+    Ypred_dtree_test = tree_grid.predict(XTest)
+    dtree_predict_time_test = time.time() - dtree_predict_time_test
+
+    dtree_accuracy_test = metrics.accuracy_score(YTest, Ypred_dtree_test)
+    dt_precision_test = metrics.precision_score(YTest, Ypred_dtree_test,
+                                                average='binary')
+    dtree_recall_test = metrics.recall_score(YTest, Ypred_dtree_test,
+                                             average='binary')
+
+    print "DT test prediction time: " + str(dtree_predict_time_test)
+    print "DT test accuracy Score: " + str(dtree_accuracy_test)
+    print "DT test precision Score: " + str(dt_precision_test)
+    print "DT test recall Score: " + str(dtree_recall_test)
+
+
+def AdaBoost(X, Y, XTest, YTest):
+    print '-----------------------------------------------------'
+
+    param_grid = {'learning_rate': [0.1, 0.3, 0.6, 1, 3, 6, 10]}
+
+    tree_grid = GridSearchCV(AdaBoostClassifier(), param_grid)
     tree_grid.fit(X, Y)
 
     print("The best parameters are %s with a score of %0.2f"
