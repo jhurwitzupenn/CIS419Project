@@ -1,0 +1,21 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Blackwell \& Kaufman(2002)Blackwell and Kaufman]{Blackwell02}
+Blackwell, T.H. and Kaufman, J.S.
+\newblock Response time effectiveness: Comparison of response time and survival
+  in urban emergency medical services system.
+\newblock \emph{Academic Emergency Medicine}, 9\penalty0 (4):\penalty0
+  288--295, 2002.
+
+\bibitem[Zhan \& Noon(1998)Zhan and Noon]{Zhan98}
+Zhan, F.B. and Noon, C.E.
+\newblock Shortest path algorithms: An evaluation using real road networks.
+\newblock \emph{Transportation Science}, 32\penalty0 (1):\penalty0 65--73,
+  1998.
+
+\end{thebibliography}
