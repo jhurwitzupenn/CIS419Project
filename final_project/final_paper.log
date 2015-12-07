@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 14:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -285,40 +285,60 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 97.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen117
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen118
+\lightrulewidth=\dimen119
+\cmidrulewidth=\dimen120
+\belowrulesep=\dimen121
+\belowbottomsep=\dimen122
+\aboverulesep=\dimen123
+\abovetopsep=\dimen124
+\cmidrulesep=\dimen125
+\cmidrulekern=\dimen126
+\defaultaddspace=\dimen127
+\@cmidla=\count115
+\@cmidlb=\count116
+\@aboverulesep=\dimen128
+\@belowrulesep=\dimen129
+\@thisruleclass=\count117
+\@lastruleclass=\count118
+\@thisrulewidth=\dimen130
+)
 (./final_paper.aux)
 \openout1 = `final_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 45.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
-\scratchdimen=\dimen118
+\scratchcounter=\count119
+\scratchdimen=\dimen131
 \scratchbox=\box32
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\nofMPsegments=\count120
+\nofMParguments=\count121
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count118
-\MPscratchDim=\dimen119
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen132
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
 \everyMPtoPDFconversion=\toks19
 ) (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -336,7 +356,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring ON on input line 44.
+Package hyperref Info: Link coloring ON on input line 45.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -344,11 +364,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count121
+\c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
 
 (./final_paper.out) (./final_paper.out)
 \@outlinefile=\write3
@@ -357,25 +377,25 @@ LaTeX Info: Redefining \nameref on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 63.
+(hyperref)                removing `\\' on input line 64.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
 
-Overfull \hbox (5.1225pt too wide) in paragraph at lines 65--65
+Overfull \hbox (5.1225pt too wide) in paragraph at lines 66--66
  [] 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 66.
+(Font)              <7> on input line 67.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 66.
+(Font)              <5> on input line 67.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 79.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -384,7 +404,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 1248) in paragraph at lines 87--88
+Underfull \hbox (badness 1248) in paragraph at lines 88--89
 []\OT1/ptm/m/n/10 The train-ing and test datasets are ex-tracted from the
  []
 
@@ -392,13 +412,13 @@ Underfull \hbox (badness 1248) in paragraph at lines 87--88
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-<ROC.png, id=39, 871.255pt x 656.4525pt>
+<ROC.png, id=41, 871.255pt x 656.4525pt>
 File: ROC.png Graphic file (type png)
  <use ROC.png>
-Package pdftex.def Info: ROC.png used on input line 133.
+Package pdftex.def Info: ROC.png used on input line 134.
 (pdftex.def)             Requested size: 241.84842pt x 182.2128pt.
 
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 133--134
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 134--135
 [][] 
  []
 
@@ -406,37 +426,37 @@ Overfull \hbox (6.97092pt too wide) in paragraph at lines 133--134
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<ROC2.png, id=41, 840.13875pt x 647.41875pt>
+<ROC2.png, id=43, 840.13875pt x 647.41875pt>
 File: ROC2.png Graphic file (type png)
  <use ROC2.png>
-Package pdftex.def Info: ROC2.png used on input line 137.
+Package pdftex.def Info: ROC2.png used on input line 138.
 (pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 137--138
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 138--139
 [][] 
  []
 
-<tables.png, id=42, 577.15625pt x 408.52625pt>
+<tables.png, id=44, 577.15625pt x 408.52625pt>
 File: tables.png Graphic file (type png)
  <use tables.png>
-Package pdftex.def Info: tables.png used on input line 141.
+Package pdftex.def Info: tables.png used on input line 142.
 (pdftex.def)             Requested size: 241.84842pt x 171.18713pt.
 
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 141--142
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 142--143
 [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3 <./ROC.png> <./ROC2.png>] <dtree_vis.png, id=51, 396.48125pt x 389.455pt>
+ [3 <./ROC.png> <./ROC2.png>] <dtree_vis.png, id=53, 396.48125pt x 389.455pt>
 File: dtree_vis.png Graphic file (type png)
 
 <use dtree_vis.png>
-Package pdftex.def Info: dtree_vis.png used on input line 151.
+Package pdftex.def Info: dtree_vis.png used on input line 152.
 (pdftex.def)             Requested size: 241.84842pt x 237.5672pt.
 
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 151--152
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 152--153
 [][] 
  []
 
@@ -445,21 +465,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 (./final_paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 167.
  [4 <./tables.png> <./dtree_vis.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
  (./final_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 167.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 167.
 Package rerunfilecheck Info: File `final_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 167.
  ) 
 Here is how much of TeX's memory you used:
- 6243 strings out of 493315
- 90652 string characters out of 6137904
- 193386 words of memory out of 5000000
- 9594 multiletter control sequences out of 15000+600000
+ 6304 strings out of 493315
+ 91482 string characters out of 6137904
+ 194149 words of memory out of 5000000
+ 9650 multiletter control sequences out of 15000+600000
  16012 words of font info for 30 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  31i,11n,45p,1175b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -469,10 +489,10 @@ xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_paper.pdf (4 pages, 499048 bytes).
+Output written on final_paper.pdf (4 pages, 500114 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
- 31 named destinations out of 1000 (max. 500000)
+ 91 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
+ 32 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

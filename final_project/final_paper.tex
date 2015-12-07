@@ -36,6 +36,7 @@
 
 % Added to make the table
 \usepackage{multirow}
+\usepackage{booktabs}
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
@@ -63,7 +64,7 @@
 ]
 
 \begin{abstract} 
-We implemented a classifier to determine the fastest single-source, single-target shortest path algorithm for a given road network in the context of optimizing the response times of emergency responder units. We explore the viability of this solution by training several classifiers, including two variations of the Support Vector Machine (SVM) classifier, a standard decision tree, and a boosted decision tree on variations of Djikstra's shortest path algorithm and the A$\star$ algorithm with multiple heuristics.  We evaluated the accuracy, recall, precision, and prediction time to determine the best classifier, and we found that our ultimate choice of a depth-3 decision tree showed promise in most efficiently identifying the fastest shortest path algorithm to use, such that an appropriate path is output. These classifiers draw upon principles from Machine Learning and are relevant for our target application of optimizing emergency responder times. 
+We implemented a classifier to determine the fastest single-source, single-target shortest path algorithm for a given road network in the context of optimizing the response times of emergency responder units. We explore the viability of this solution by training several classifiers, including two variations of the Support Vector Machine (SVM) classifier, a standard decision tree, and a boosted decision tree on variations of Djikstra's shortest path algorithm and the A$\star$ algorithm with multiple heuristics.  We evaluated the accuracy, recall, precision, and prediction time to determine the best classifier, and we found that our ultimate choice of a depth-3 decision tree showed promise in most efficiently identifying the fastest shortest path algorithm to use, such that an appropriate path is output. These classifiers draw upon principles from Machine Learning and are relevant for our target application of optimizing emergency responder times \yrcite{Flach12}. 
 
 \end{abstract} 
 
@@ -154,7 +155,7 @@ Given that the depth-3 decision tree had the strongest performance in terms of b
 
 A decision tree with depth 3 was shown to most accurately and most quickly predict the appropriate shortest path algorithm for a given traffic-weighted road network with an accuracy of $72\%$ and a running time of 0.00025 seconds. However, we found that the composition of our training and test input graphs were relatively similar in composition, meaning that the classifier had the most "practice" and greatest likelihood with graphs appropriate for the standard $A\star$ algorithm. Although the size of our dataset was relatively large to ensure diversity in the input dataset, we were constrained by the running time of the preprocessing algorithms in increasing the size of the dataset. Further, we also were constrained by the information contained within our datasets. The standard .GML file format for road networks is independent of position, meaning that we were unable to determine how variations in the input heuristics of the $A\star$ algorithm might affect the accuracy, precision, and/or recall of this algorithm.
 
-Future research in this area may benefit from a larger, more data-rich, and more diverse set of graphs to train on, perhaps enabled by greater processing power. 
+Future research in this area may benefit from a larger, more data-rich, and more diverse set of graphs to train on, perhaps enabled by greater processing speed. 
 
 \section{Conclusions}
 
