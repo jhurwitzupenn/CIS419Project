@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 18:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,7 +384,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 1248) in paragraph at lines 87--88
+Underfull \hbox (badness 1248) in paragraph at lines 91--92
 []\OT1/ptm/m/n/10 The train-ing and test datasets are ex-tracted from the
  []
 
@@ -398,33 +398,34 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <ROC.png, id=42, 871.255pt x 656.4525pt>
 File: ROC.png Graphic file (type png)
  <use ROC.png>
-Package pdftex.def Info: ROC.png used on input line 137.
+Package pdftex.def Info: ROC.png used on input line 141.
 (pdftex.def)             Requested size: 241.84842pt x 182.2128pt.
-
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 137--138
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./ROC.png>] <ROC2.png, id=54, 840.13875pt x 647.41875pt>
-File: ROC2.png Graphic file (type png)
- <use ROC2.png>
-Package pdftex.def Info: ROC2.png used on input line 141.
-(pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
 Overfull \hbox (6.97092pt too wide) in paragraph at lines 141--142
 [][] 
  []
 
-<tables.png, id=55, 344.28625pt x 624.3325pt>
-File: tables.png Graphic file (type png)
- <use tables.png>
-Package pdftex.def Info: tables.png used on input line 145.
-(pdftex.def)             Requested size: 241.84842pt x 438.57307pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+<ROC2.png, id=53, 840.13875pt x 647.41875pt>
+File: ROC2.png Graphic file (type png)
+ <use ROC2.png>
+Package pdftex.def Info: ROC2.png used on input line 145.
+(pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
 Overfull \hbox (6.97092pt too wide) in paragraph at lines 145--146
+[][] 
+ []
+
+<tables.png, id=54, 344.28625pt x 624.3325pt>
+File: tables.png Graphic file (type png)
+ <use tables.png>
+Package pdftex.def Info: tables.png used on input line 149.
+(pdftex.def)             Requested size: 241.84842pt x 438.57307pt.
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 149--150
 [][] 
  []
 
@@ -432,16 +433,16 @@ Overfull \hbox (6.97092pt too wide) in paragraph at lines 145--146
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<dtree_vis.png, id=56, 396.48125pt x 389.455pt>
+<dtree_vis.png, id=55, 396.48125pt x 389.455pt>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./ROC2.png> <./tables.png>]
+ [4 <./ROC.png> <./ROC2.png> <./tables.png>]
 File: dtree_vis.png Graphic file (type png)
  <use dtree_vis.png>
-Package pdftex.def Info: dtree_vis.png used on input line 155.
+Package pdftex.def Info: dtree_vis.png used on input line 159.
 (pdftex.def)             Requested size: 241.84842pt x 237.5672pt.
 
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 155--156
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 159--160
 [][] 
  []
 
@@ -449,20 +450,20 @@ Overfull \hbox (6.97092pt too wide) in paragraph at lines 155--156
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
  [5 <./dtree_vis.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
  (./final_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
 Package rerunfilecheck Info: File `final_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 170.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 174.
  ) 
 Here is how much of TeX's memory you used:
  6257 strings out of 493315
  90847 string characters out of 6137904
- 194457 words of memory out of 5000000
+ 193457 words of memory out of 5000000
  9603 multiletter control sequences out of 15000+600000
  16012 words of font info for 30 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -473,7 +474,7 @@ xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_paper.pdf (5 pages, 533492 bytes).
+Output written on final_paper.pdf (5 pages, 534411 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream
