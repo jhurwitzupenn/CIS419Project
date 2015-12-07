@@ -34,6 +34,8 @@
 % the note in the first column to ``Under review.  Do not distribute.''
 \usepackage{pennML2015} 
 
+% Added to make the table
+\usepackage{multirow}
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
@@ -61,7 +63,7 @@
 ]
 
 \begin{abstract} 
-We implemented a classifier to determine the fastest single-source, single-target shortest path algorithm for a given road network in the context of optimizing the response times of emergency responder units. We explore the viability of this solution by training three classifiers, including two variations of the Support Vector Machine (SVM) classifier and a standard decision tree on variations of Djikstra's shortest path algorithm and the A$\star$ algorithm with multiple heuristics.  We evaluated the accuracy, recall, precision, and prediction time to determine the best classifier, and we found that our ultimate choice of XXXXXXX showed promise in most efficiently identifying the fastest shortest path algorithm to use, such that an appropriate path is output. These classifiers draw upon principles from Machine Learning and are relevant for our target application of optimizing emergency responder times. 
+We implemented a classifier to determine the fastest single-source, single-target shortest path algorithm for a given road network in the context of optimizing the response times of emergency responder units. We explore the viability of this solution by training several classifiers, including two variations of the Support Vector Machine (SVM) classifier, a standard decision tree, and a boosted decision tree on variations of Djikstra's shortest path algorithm and the A$\star$ algorithm with multiple heuristics.  We evaluated the accuracy, recall, precision, and prediction time to determine the best classifier, and we found that our ultimate choice of XXXXXXX showed promise in most efficiently identifying the fastest shortest path algorithm to use, such that an appropriate path is output. These classifiers draw upon principles from Machine Learning and are relevant for our target application of optimizing emergency responder times. 
 
 \end{abstract} 
 
@@ -106,7 +108,7 @@ For our shortest path algorithms, we chose the standard and bidirectional Djikst
 
 \subsection{Learning Algorithms} 
 
-We  chose to sample three different classifiers to compare their performance, given that our target application was to find the shortest geographical path between two points for emergency responders. We believe that these classifiers may be particularly relevant for our purposes because they require only a relatively general base learning algorithm. Therefore, we know that future test data will conform to the road data we used for testing. It is important to remember that certain classifiers, such as Naive Bayes, would be unsuitable since many of the features we have computed over the graphs may be correlated with each other. Once we determined that X was the most appropriate classifier, we tuned its parameters using GridSearch over the training set based on the true labels of the training set. Having chosen this classifier, we compared the prediction results of our classifier on our training set with the true labels for the training data. This comparison enabled us to obtain evaluation metrics including accuracy, precision, and recall, against which to score our classifier and determine its viability as a solution for emergency responders.
+We  chose to sample four different classifiers to compare their performance, given that our target application was to find the shortest geographical path between two points for emergency responders. We believe that these classifiers may be particularly relevant for our purposes because they require only a relatively general base learning algorithm. Therefore, we know that future test data will conform to the road data we used for testing. It is important to remember that certain classifiers, such as Naive Bayes, would be unsuitable since many of the features we have computed over the graphs may be correlated with each other. Once we determined that X was the most appropriate classifier, we tuned its parameters using GridSearch over the training set based on the true labels of the training set. Having chosen this classifier, we compared the prediction results of our classifier on our training set with the true labels for the training data. This comparison enabled us to obtain evaluation metrics including accuracy, precision, and recall, against which to score our classifier and determine its viability as a solution for emergency responders.
 
 \subsection{SVM: Sigmoid and RBF Kernels}
 
@@ -114,11 +116,32 @@ We used two types of support vector machines (SVMs) with both sigmoid and radial
 
 \subsection{Decision Tree}
 
-We chose to test a decision tree classifier because it can handle the graph features we use as inputs to the base learning algorithm and can split on the shortest path algorithms relatively quickly. Further, a decision tree classifier has the unique benefit of being easy-to-use and user-friendly. An emergency responder would only need to input his starting point in order to use this classifier. However, we recognize that a downside of this approach is the necessity of knowing the features of a graph in order to run this classifier. As a result of this analysis, we predicted that the decision tree classifier would be the fastest of all of our classifiers.
+We chose to test a depth-3 decision tree classifier because it can handle the graph features we use as inputs to the base learning algorithm and can split on the shortest path algorithms relatively quickly. Further, a decision tree classifier has the unique benefit of being easy-to-use and user-friendly. An emergency responder would only need to input his starting point in order to use this classifier. However, we recognize that a downside of this approach is the necessity of knowing the features of a graph in order to run this classifier. As a result of this analysis, we predicted that the decision tree classifier would be the fastest of all of our classifiers. We further tested an AdaBoosted version of the decision tree to improve accuracy and precision.
 
 \section{Experimental Results}
 
+We sampled four total variations of SVM and decision tree classifiers, and metrics for their learning accuracy precision, and recall can be found in the next section. For each classifier, we implemented GridSearch to determine the optimal parameters, which are again specified below. However, while GridSearch worked to optimize the test accuracy of each classifier, it resulted in a sacrifice in recall score in some cases, meaning that our classifier always predicted a single algorithm. As a result, in the case of the boosted decision tree and the SVM with a radial basis function kernel, we manually adjusted the parameters to find a classifier with the greatest consolidated accuracy, precision, and recall scores.
+
 \subsection{Error Rates}
+
+ROC curves demonstrate the ability of a classifier to effectively separate input data graphs by their respective most efficient algorithm. The higher the area under the ROC curve, the more effective the test result. Figure 1 below demonstrates the Receiver Operating Characteristic (ROC) curve given the GridSearch-chosen parameters for our SVM, decision tree, and boosted decision tree classifiers. As evident below, the SVM with an RBF kernel has the highest accuracy for GridSearch-chosen parameters.
+
+\includegraphics[width=8.5cm]{ROC}
+
+Figure 2 below represents the ROC curve given the manually optimized parameters for our SVM, decision tree, and boosted decision tree classifiers. Once these parameters were manually adjusted to improve test recall for the AdaBoost and SVM classifiers, it is clear that the depth-3 decision tree has the highest accuracy. However, the AdaBoost and SVM classifiers with manually adjusted parameters are viewed as more effective classifiers than their GridSearch-optimized counterparts because they are more discriminating in instances, as reflected in the their lower recall scores.
+
+\includegraphics[width=8.5cm]{ROC2}
+
+The full accuracy, precision, and recall metrics for each of our classifiers are given in Tables 1-3 below.
+
+\begin{tabular}{l|l|l|}
+\cline{2-3}
+                       &  &  \\ \cline{2-3} 
+                       HI & HI  &  \\ \hline
+\multicolumn{1}{|l|}{} HI3 & HI2 &  HI4 \\ \hline
+\multicolumn{1}{|l|}{} &  &  \\ \hline
+\multicolumn{1}{|l|}{} &  &  \\ \hline
+\end{tabular}
 
 \section{Algorithm Preference}
 
