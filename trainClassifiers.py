@@ -91,6 +91,9 @@ def DTree(X, Y, XTest, YTest):
     # tree_grid = GridSearchCV(DecisionTreeClassifier(), param_grid)
     tree_grid = DecisionTreeClassifier(max_depth=3)
     tree_grid.fit(X, Y)
+    export_graphviz(tree_grid, out_file=dot_data)
+    graph = pydot.graph_from_dot_data(dot_data.getvalue())
+    graph.write_pdf("dtreevis.pdf")
 
     # print("The best parameters are %s with a score of %0.2f"
     #       % (tree_grid.best_params_, tree_grid.best_score_))

@@ -112,7 +112,7 @@ We  chose to sample four different classifiers to compare their performance, giv
 
 \subsection{SVM: Sigmoid and RBF Kernels}
 
-We used two types of support vector machines (SVMs) with both sigmoid and radial basis function (RBF) kernels. We chose to use support vector machines because we predict that there will be correlation between the graphs, and SVMs are capable of handling data that is not linearly separable. In the case that the final model may not be linear, an SVM with an RBF kernel is generally considered to be a default option. The sigmoid kernel, which can be used interchangeably with perceptron neural networks, has further been highly effective in practice. We predicted that the support vector machine classifiers would give us the highest accuracy of all of our classifiers.
+We used two types of support vector machines (SVMs) with radial basis function (RBF). We chose to use support vector machines because we predict that there will be correlation between the graphs, and SVMs are capable of handling data that is not linearly separable. In the case that the final model may not be linear, an SVM with an RBF kernel is generally considered to be a default option. The other common choice of kernel, a sigmoid kernel, which can be used interchangeably with perceptron neural networks, has further been highly effective in practice but may be less applicable for our chosen application. We predicted that the support vector machine classifiers would give us the highest accuracy of all of our classifiers.
 
 \subsection{Decision Tree}
 
@@ -138,13 +138,17 @@ The full accuracy, precision, and recall metrics for each of our classifiers are
 
 \subsection{Experimental Results}
 
-Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. 
+Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. This classifier had a 72\% accuracy and predicted a shortest path algorithm in 0.00025 seconds, 
 
 \section{Algorithm Preference}
+
+Given that the depth-3 decision tree had the strongest performance of our sampled classifiers, we ran 
 
 \section{Evaluation and Analysis}
 
 \section{Conclusions}
+
+
 
 \bibliography{final_paper}
 \bibliographystyle{icml2014}
