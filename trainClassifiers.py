@@ -30,12 +30,13 @@ def SVM(X, Y, XTest, YTest):
                    'gamma': gammaList,
                    'kernel': ['rbf', 'sigmoid', 'linear']}]
     # grid search over these to find parameters
-    rbf_grid = GridSearchCV(SVC(probability=True), param_grid=param_grid)
+    # rbf_grid = GridSearchCV(SVC(probability=True), param_grid=param_grid)
+    rbf_grid = SVC(C=500, gamma=0.1, probability=True)
     # fit the models
     rbf_grid.fit(X, Y)
 
-    print("The best parameters are %s with a score of %0.2f"
-          % (rbf_grid.best_params_, rbf_grid.best_score_))
+    # print("The best parameters are %s with a score of %0.2f"
+    #       % (rbf_grid.best_params_, rbf_grid.best_score_))
 
     print "Computing training statistics"
     rbf_predict_time_training = time.time()
@@ -85,13 +86,14 @@ def DTree(X, Y, XTest, YTest):
     # graph = pydot.graph_from_dot_data(dot_data.getvalue())
     # graph.write_pdf("../dtree.pdf")
 
-    param_grid = {'max_depth': np.arange(1, 15)}
+    # param_grid = {'max_depth': np.arange(1, 15)}
 
-    tree_grid = GridSearchCV(DecisionTreeClassifier(), param_grid)
+    # tree_grid = GridSearchCV(DecisionTreeClassifier(), param_grid)
+    tree_grid = DecisionTreeClassifier(max_depth=3)
     tree_grid.fit(X, Y)
 
-    print("The best parameters are %s with a score of %0.2f"
-          % (tree_grid.best_params_, tree_grid.best_score_))
+    # print("The best parameters are %s with a score of %0.2f"
+    #       % (tree_grid.best_params_, tree_grid.best_score_))
 
     print "Computing training statistics"
     dtree_predict_time_training = time.time()
@@ -137,13 +139,14 @@ def DTree(X, Y, XTest, YTest):
 def AdaBoost(X, Y, XTest, YTest):
     print '-----------------------------------------------------'
 
-    param_grid = {'learning_rate': [0.1, 0.3, 0.6, 1, 3, 6, 10]}
+    # param_grid = {'learning_rate': [0.1, 0.3, 0.6, 1, 3, 6, 10]}
 
-    tree_grid = GridSearchCV(AdaBoostClassifier(), param_grid)
+    # tree_grid = GridSearchCV(AdaBoostClassifier(), param_grid)
+    tree_grid = AdaBoostClassifier(n_estimators=100, learning_rate=2)
     tree_grid.fit(X, Y)
 
-    print("The best parameters are %s with a score of %0.2f"
-          % (tree_grid.best_params_, tree_grid.best_score_))
+    # print("The best parameters are %s with a score of %0.2f"
+    #       % (tree_grid.best_params_, tree_grid.best_score_))
 
     print "Computing training statistics"
     dtree_predict_time_training = time.time()
@@ -194,4 +197,4 @@ def BuildROCs():
     plt.ylim([-0.1, 1.2])
     plt.ylabel('True Positive Rate')
     plt.xlabel('False Positive Rate')
-    plt.savefig('ROC.pdf')
+    plt.savefig('ROC2.pdf')
