@@ -82,11 +82,7 @@ To achieve this goal, machine learning classifier trained to detect important fe
 
 \section{Data Set}
 
-<<<<<<< HEAD
 Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We chose Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse\cite{Himsolt}. Furthermore, there is a lot of graph data available in this format, and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website from which to test our parser, and eventually to test our feature extraction\cite{Newman13}.
-=======
-Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We chose Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse. Furthermore, there is a lot of graph data available in this format, and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website from which to test our parser, and eventually to test our feature extraction.
->>>>>>> origin/master
 
 The training and test datasets are extracted from the U.S. Census Bureau's Topologically Integrated Geographic Encoding and Referencing (TIGER) database, and were sourced from the Dryad Digital Repository under the title \textit{Barrington-Leigh-Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-GML-format}. These graphs represent real-world street networks, and were output in GML format. Unfortunately, the input graphs did not have real positional data (i.e. latitude and longitude coordinates) for the nodes, so testing the $A\star$ algorithm's effectiveness became slightly less powerful, since it was impractical to implement heuristics beyond the defaults defined in the \textit{NetworkX} package. A detailed discussion of our choice of algorithms follows in the \textit{Algorithms} section. Initially, we ran our classifiers on a test dataset of 100 graphs and achieved a maximum training accuracy of around 75$\%$, motivating an increase in the size of the dataset to around 200 total graphs. Memory and runtime restrictions limited the number of graphs we could use for training.
 
@@ -150,7 +146,7 @@ The full accuracy, precision, and recall metrics for each of our classifiers are
 
 \subsection{Experimental Results}
 
-Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. This classifier had a 72\% accuracy and predicted a shortest path algorithm in 0.00025 seconds,
+Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. This classifier had a $72\%$ accuracy and predicted a shortest path algorithm in 0.00025 seconds,
 
 \section{Algorithm Preference}
 
@@ -181,10 +177,4 @@ A decision tree with depth 3 was shown to most accurately and most quickly predi
 % slightly modified from the 2009 version by Kiri Wagstaff and
 % Sam Roweis's 2008 version, which is slightly modified from
 % Prasad Tadepalli's 2007 version which is a lightly
-% changed version of the previous year's version by Andrew Moore,
-% which was in turn edited from those of Kristian Kersting and
-<<<<<<< HEAD
-% Codrina Lauth. Alex Smola contributed to the algorithmic style files
-=======
-% Codrina Lauth. Alex Smola contributed to the algorithmic style files
->>>>>>> origin/master
+% changed version of the previous year's version by Andrew Moore
