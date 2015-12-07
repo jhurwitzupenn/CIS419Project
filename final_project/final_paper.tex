@@ -116,9 +116,9 @@ We used two types of support vector machines (SVMs) with both sigmoid and radial
 
 \subsection{Decision Tree}
 
-We chose to test a depth-3 decision tree classifier because it can handle the graph features we use as inputs to the base learning algorithm and can split on the shortest path algorithms relatively quickly. Further, a decision tree classifier has the unique benefit of being easy-to-use and user-friendly. An emergency responder would only need to input his starting point in order to use this classifier. However, we recognize that a downside of this approach is the necessity of knowing the features of a graph in order to run this classifier. As a result of this analysis, we predicted that the decision tree classifier would be the fastest of all of our classifiers. We further tested an AdaBoosted version of the decision tree to improve accuracy and precision.
+We chose to test a depth-3 decision tree classifier because it can handle the graph features we use as inputs to the base learning algorithm and can split on the shortest path algorithms relatively quickly. Further, a decision tree classifier has the unique benefit of being easy-to-use and user-friendly. An emergency responder would only need to input his starting point in order to use this classifier. However, we recognize that a downside of this approach is the necessity of knowing the features of a graph in order to run this classifier. As a result of this analysis, we predicted that the decision tree classifier would be the fastest of all of our classifiers. We further tested a boosted version of the decision tree to improve accuracy and precision.
 
-\section{Experimental Results}
+\section{Discussion}
 
 We sampled four total variations of SVM and decision tree classifiers, and metrics for their learning accuracy precision, and recall can be found in the next section. For each classifier, we implemented GridSearch to determine the optimal parameters, which are again specified below. However, while GridSearch worked to optimize the test accuracy of each classifier, it resulted in a sacrifice in recall score in some cases, meaning that our classifier always predicted a single algorithm. As a result, in the case of the boosted decision tree and the SVM with a radial basis function kernel, we manually adjusted the parameters to find a classifier with the greatest consolidated accuracy, precision, and recall scores.
 
@@ -134,14 +134,11 @@ Figure 2 below represents the ROC curve given the manually optimized parameters 
 
 The full accuracy, precision, and recall metrics for each of our classifiers are given in Tables 1-3 below.
 
-\begin{tabular}{l|l|l|}
-\cline{2-3}
-                       &  &  \\ \cline{2-3} 
-                       HI & HI  &  \\ \hline
-\multicolumn{1}{|l|}{} HI3 & HI2 &  HI4 \\ \hline
-\multicolumn{1}{|l|}{} &  &  \\ \hline
-\multicolumn{1}{|l|}{} &  &  \\ \hline
-\end{tabular}
+\includegraphics[width=8.5cm]{tables}
+
+\subsection{Experimental Results}
+
+Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. 
 
 \section{Algorithm Preference}
 
