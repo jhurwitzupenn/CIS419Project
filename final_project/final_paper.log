@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 13:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 14:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -392,74 +392,87 @@ Underfull \hbox (badness 1248) in paragraph at lines 87--88
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-<ROC.png, id=36, 871.255pt x 656.4525pt>
+<ROC.png, id=39, 871.255pt x 656.4525pt>
 File: ROC.png Graphic file (type png)
  <use ROC.png>
-Package pdftex.def Info: ROC.png used on input line 129.
+Package pdftex.def Info: ROC.png used on input line 133.
 (pdftex.def)             Requested size: 241.84842pt x 182.2128pt.
-
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 129--130
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-<ROC2.png, id=38, 840.13875pt x 647.41875pt>
-File: ROC2.png Graphic file (type png)
- <use ROC2.png>
-Package pdftex.def Info: ROC2.png used on input line 133.
-(pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
 Overfull \hbox (6.97092pt too wide) in paragraph at lines 133--134
 [][] 
  []
 
-<tables.png, id=39, 577.15625pt x 408.52625pt>
-File: tables.png Graphic file (type png)
- <use tables.png>
-Package pdftex.def Info: tables.png used on input line 137.
-(pdftex.def)             Requested size: 241.84842pt x 171.18713pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<ROC2.png, id=41, 840.13875pt x 647.41875pt>
+File: ROC2.png Graphic file (type png)
+ <use ROC2.png>
+Package pdftex.def Info: ROC2.png used on input line 137.
+(pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
 Overfull \hbox (6.97092pt too wide) in paragraph at lines 137--138
 [][] 
  []
 
-(./final_paper.bbl
+<tables.png, id=42, 577.15625pt x 408.52625pt>
+File: tables.png Graphic file (type png)
+ <use tables.png>
+Package pdftex.def Info: tables.png used on input line 141.
+(pdftex.def)             Requested size: 241.84842pt x 171.18713pt.
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 141--142
+[][] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3 <./ROC.png> <./ROC2.png> <./tables.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
- [4
+ [3 <./ROC.png> <./ROC2.png>] <dtree_vis.png, id=51, 396.48125pt x 389.455pt>
+File: dtree_vis.png Graphic file (type png)
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
+<use dtree_vis.png>
+Package pdftex.def Info: dtree_vis.png used on input line 151.
+(pdftex.def)             Requested size: 241.84842pt x 237.5672pt.
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 151--152
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+(./final_paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
+ [4 <./tables.png> <./dtree_vis.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
  (./final_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
 Package rerunfilecheck Info: File `final_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 6235 strings out of 493315
- 90550 string characters out of 6137904
+ 6243 strings out of 493315
+ 90652 string characters out of 6137904
  193386 words of memory out of 5000000
- 9590 multiletter control sequences out of 15000+600000
+ 9594 multiletter control sequences out of 15000+600000
  16012 words of font info for 30 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 30i,11n,45p,1175b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 31i,11n,45p,1175b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_paper.pdf (4 pages, 409566 bytes).
+Output written on final_paper.pdf (4 pages, 499048 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
- 28 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 89 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 31 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
