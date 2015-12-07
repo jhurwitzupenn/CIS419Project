@@ -10,7 +10,7 @@
 % For figures
 \usepackage{graphicx} % more modern
 %\usepackage{epsfig} % less modern
-\usepackage{subfigure} 
+\usepackage{subfigure}
 
 % For citations
 \usepackage{natbib}
@@ -32,17 +32,16 @@
 % Employ the following version of the ``usepackage'' statement for
 % submitting the draft version of the paper for review.  This will set
 % the note in the first column to ``Under review.  Do not distribute.''
-\usepackage{pennML2015} 
+\usepackage{pennML2015}
 
 % Added to make the table
 \usepackage{multirow}
-\usepackage{booktabs}
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
 \icmltitlerunning{Abraham, Hurwitz, Sankar}
 
-\begin{document} 
+\begin{document}
 
 \twocolumn[
 \icmltitle{Final Project for CIS 419\\Selecting the Optimal Shortest Path Algorithm for Road Networks}
@@ -55,18 +54,18 @@
 \icmlauthor{Jordan Hurwitz}{nsankar@seas.upenn.edu}
 \icmlauthor{Nivedita Sankar}{jhurwitz@sas.upenn.edu}
 
-% You may provide any keywords that you 
-% find helpful for describing your paper; these are used to populate 
+% You may provide any keywords that you
+% find helpful for describing your paper; these are used to populate
 % the "keywords" metadata in the PDF but will not be shown in the document
 \icmlkeywords{boring formatting information, machine learning}
 
 \vskip 0.3in
 ]
 
-\begin{abstract} 
-We implemented a classifier to determine the fastest single-source, single-target shortest path algorithm for a given road network in the context of optimizing the response times of emergency responder units. We explore the viability of this solution by training several classifiers, including two variations of the Support Vector Machine (SVM) classifier, a standard decision tree, and a boosted decision tree on variations of Djikstra's shortest path algorithm and the A$\star$ algorithm with multiple heuristics.  We evaluated the accuracy, recall, precision, and prediction time to determine the best classifier, and we found that our ultimate choice of a depth-3 decision tree showed promise in most efficiently identifying the fastest shortest path algorithm to use, such that an appropriate path is output. These classifiers draw upon principles from Machine Learning and are relevant for our target application of optimizing emergency responder times \yrcite{Flach12}. 
+\begin{abstract}
+We implemented a classifier to determine the fastest single-source, single-target shortest path algorithm for a given road network in the context of optimizing the response times of emergency responder units. We explore the viability of this solution by training several classifiers, including two variations of the Support Vector Machine (SVM) classifier, a standard decision tree, and a boosted decision tree on variations of Djikstra's shortest path algorithm and the A$\star$ algorithm with multiple heuristics.  We evaluated the accuracy, recall, precision, and prediction time to determine the best classifier, and we found that our ultimate choice of a depth-3 decision tree showed promise in most efficiently identifying the fastest shortest path algorithm to use, such that an appropriate path is output. These classifiers draw upon principles from Machine Learning and are relevant for our target application of optimizing emergency responder times.
 
-\end{abstract} 
+\end{abstract}
 
 \section{Introduction}
 
@@ -74,22 +73,22 @@ Past research efforts in the area of shortest path algorithms in the context of 
 
 Often, Dijkstra's shortest path algorithm is used since it is the most general, but alternatives may outperform this choice on select input graphs. However, depending on the feature vectors specific to any given instance of a graph, another algorithm may more efficiently produce the shortest path; for the purposes of this project, we considered variations of Djikstra's, as well as the A$\star$ shortest path algorithm.
 
-We plan to compare the efficiencies of variations of Support Vector Machine and decision tree classifiers, trained on real-world road network data, to determine both the most effective classifier, as well as to triangulate the most efficient shortest path algorithm for an arbitrary road network in working towards the final goal of outputting the optimal shortest path algorithm.
+We plan to compare the efficiencies of variations of Support Vector Machine and decision tree classifiers, trained on real-world road network data, to determine the classifier that is most effective for an arbitrary road network at outputting the optimal shortest path algorithm. Here, we define optimality in terms of speed, accuracy, precision, and recall metrics.
 
 \subsection{Motivation}
 Over 1,000 lives are lost every year as a result of delays in emergency response times \yrcite{Blackwell02}. Fast detection of the shortest possible path between a starting point and an emergency destination could contribute significantly towards increasing the speed of emergency responders and thus, their ability to save lives. Given relevant traffic conditions at any particular point in time, the weights of the input road network could be updated to reflect current conditions and provide the emergency response team with the current shortest path.
 
-To achieve this goal, machine learning classifier trained to detect important features of a particular road network given source and target may be able to determine and implement the most efficient shortest path algorithm. In the context of our target application, this may save valuable time that could significantly improve the response times of emergency responders. 
+To achieve this goal, machine learning classifier trained to detect important features of a particular road network given source and target may be able to determine and implement the most efficient shortest path algorithm. In the context of our target application, this may save valuable time that could significantly improve the response times of emergency responders.
 
 \section{Data Set}
 
-Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We chose Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse. Furthermore, there is a lot of graph data available in this format, and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website from which to test our parser, and eventually to test our feature extraction. Unfortunately, our input graphs did not have positional data, so in the case of the $A\star$ algorithm, it was difficult to implement heuristics beyond the defaults defined in the \textit{NetworkX} package.
+Currently, there is no one universal structure to represent graphs, since often times different applications require different internal graph structures. We chose Graph Modeling Language (GML) because it offers the following advantages: it is easy to read, understand, and parse\cite{Himsolt}. Furthermore, there is a lot of graph data available in this format, and many algorithms and packages have already been defined for this structure. We obtained simple GML graphs from Mark Newman's personal website from which to test our parser, and eventually to test our feature extraction\cite{Newman13}.
 
-The training and test datasets are extracted from the U.S. Census Bureau's Topologically Integrated Geographic Encoding and Referencing (TIGER) database, and were sourced from the Dryad Digital Repository under the title \textit{Barrington-Leigh-Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-GML-format}. These data represent real-world street networks, and were output in GML format. Initially, we ran our classifiers on a test dataset of 100 graphs and achieved a maximum accuracy of around 75$\%$, motivating an increase in the size of the dataset. However, we ran into memory errors in trying to parse the 200-graph dataset, leading us to move from batch features to online features.
+The training and test datasets are extracted from the U.S. Census Bureau's Topologically Integrated Geographic Encoding and Referencing (TIGER) database, and were sourced from the Dryad Digital Repository under the title \textit{Barrington-Leigh-Millard-Ball-PNAS2015-Century-of-sprawl-graphs-in-GML-format}. These graphs represent real-world street networks, and were output in GML format. Unfortunately, the input graphs did not have real positional data (i.e. latitude and longitude coordinates) for the nodes, so testing the $A\star$ algorithm's effectiveness became slightly less powerful, since it was impractical to implement heuristics beyond the defaults defined in the \textit{NetworkX} package. A detailed discussion of our choice of algorithms follows in the \textit{Algorithms} section. Initially, we ran our classifiers on a test dataset of 100 graphs and achieved a maximum training accuracy of around 75$\%$, motivating an increase in the size of the dataset to around 200 total graphs. Memory and runtime restrictions limited the number of graphs we could use for training.
 
 \section{Feature Generation}
 
-We used Python to preprocess our input data graphs before running them through our supervised learning algorithms. In preprocessing these graphs, we parsed the given graph data in order to obtain feature vectors that represent each graph. We used the \textit{NetworkX} package to obtain most of the following features of our graphs and then combined all of the feature vectors into a 2D \textit{numpy} array, where each column represented values of a particular feature and each row was a different graph. We then passed this numpy array as the X argument in the fit method of our classifier. The features we computed are given below.
+We used Python to preprocess our input data graphs before running them through our supervised learning algorithms. In preprocessing these graphs, we parsed the given graph data in order to obtain feature vectors that represent each graph. We used the \textit{NetworkX} package to obtain the following features of our graphs and then combined all of the feature vectors into a 2D \textit{numpy} array, where each column represented values of a particular feature and each row represented all the features for a given graph. Initially, we used a batch algorithm to do this feature extraction. We read in all the graphs and saved their \textit{NetworkX} format, then ran each of the feature algorithms on each one in turn. However, we ran into memory errors while trying to do this for the entire 200-graph dataset, as most of the graphs were around 100MB in size, and so we decided to reformat our feature extraction algorithms to be online algorithms utilizing Python's Garbage Collector. Once we finished creating the feature set, we then passed this numpy array as the X argument in the fit method of each of our classifiers in turn. Ideally, we would like to have obtained more features, but the NetworkX package did not have many more useful algorithms that worked correctly on our graph dataset - many of the algorithms it provided required undirected graphs, for example. Furthermore, some of the features would have taken an infeasibly long runtime for the machines we had access to, but given additional resources, we would liked to have included features such as eigenvector centrality as well. The features we computed are given below.
 
 \begin{enumerate}
 \item Maximum Degree Centrality
@@ -103,17 +102,21 @@ We used Python to preprocess our input data graphs before running them through o
 
 \end{enumerate}
 
-We further considered Principal Component Analysis for dimensionality reduction, as the bottleneck in running time of this machine learning algorithm is in reading and choosing the features. However, given that we have only extracted a narrow range of features, this approach has limited usefulness.
+We further considered Principal Component Analysis for dimensionality reduction on our features to speed up prediction and training time for our classifiers. However, since there is no real constraint for training time, and given that we have only extracted a narrow range of features, this approach has limited usefulness.
+
+\subsection{Label Generation}
+
+In order to determine the labels for the training set, we ran each of the shortest path algorithms we chose to compare on each graph in the training set and labeled the corresponding row in X based on which algorithm took the least time to finish. By labeling the data in this way, we made the assumption that each of the shortest path algorithms we used were correct, but since \textit{NetworkX} is a widely used package, we decided that this was a safe assumption to make.
 
 \section{Algorithms}
 
 \subsection{Shortest Path Algorithms}
 
-For our shortest path algorithms, we chose the standard and bidirectional Djikstra's shortest path algorithms as well as the A$\star$ algorithm. All three algorithms are contained within the NetworkX (NX) package, a Python package designed to handle complex networks. We wanted our three algorithms for comparison to be uniform in their implementation, so we could reliably compare the running times for training and predicting our classifiers. 
+For our shortest path algorithms, we chose the standard and bidirectional Djikstra's shortest path algorithms as well as the A$\star$ algorithm. All three algorithms are contained within the \textit{NetworkX} (NX) package, a Python package designed to handle complex networks. The primary reason as to why we limited ourselves to just these three algorithms is that they are the most commonly used shortest path algorithms. In addition, we wanted our three algorithms for comparison to be uniform in their implementation, so we could reliably compare the running times for training and predicting our classifiers, and so we decided to avoid implementing our own versions of some algorithms (which may not have been optimized for Python, for example), and instead choose a set of algorithms that were all available from the same package. \textit{NetworkX} provided us with this.
 
-\subsection{Learning Algorithms} 
+\subsection{Learning Algorithms}
 
-We  chose to sample four different classifiers to compare their performance, given that our target application was to find the shortest geographical path between two points for emergency responders. We believe that these classifiers may be particularly relevant for our purposes because they require only a relatively general base learning algorithm. Therefore, we know that future test data will conform to the road data we used for testing. It is important to remember that certain classifiers, such as Naive Bayes, would be unsuitable since many of the features we have computed over the graphs may be correlated with each other. Once we determined that X was the most appropriate classifier, we tuned its parameters using GridSearch over the training set based on the true labels of the training set. Having chosen this classifier, we compared the prediction results of our classifier on our training set with the true labels for the training data. This comparison enabled us to obtain evaluation metrics including accuracy, precision, and recall, against which to score our classifier and determine its viability as a solution for emergency responders.
+We  chose to sample four different classifiers to compare their performance, given that our target application was to find the shortest path along roads between two points for emergency responders. We believe that these classifiers may be particularly relevant for our purposes because they require only a relatively general base learning algorithm. Therefore, we know that future test data will conform to the road data we used for testing. It is important to remember that certain classifiers, such as Naive Bayes, would be unsuitable since many of the features we have computed over the graphs may be correlated with each other. In order to determine the most appropriate classifier, we tuned all the different classifiers and their parameters using GridSearch over the training set based on the true labels of the training set. Having chosen this classifier, we compared the prediction results of our classifier on our training set with the true labels for the training data. This comparison enabled us to obtain evaluation metrics including accuracy, precision, and recall, against which to score our classifier and determine its viability as a solution for emergency responders.
 
 \subsection{SVM: Sigmoid and RBF Kernels}
 
@@ -121,11 +124,11 @@ We used two types of support vector machines (SVMs) with radial basis function (
 
 \subsection{Decision Tree}
 
-We chose to test a depth-3 decision tree classifier because it can handle the graph features we use as inputs to the base learning algorithm and can split on the shortest path algorithms relatively quickly. Further, a decision tree classifier has the unique benefit of being easy-to-use and user-friendly. An emergency responder would only need to input his starting point in order to use this classifier. However, we recognize that a downside of this approach is the necessity of knowing the features of a graph in order to run this classifier. As a result of this analysis, we predicted that the decision tree classifier would be the fastest of all of our classifiers. We further tested a boosted version of the decision tree to improve accuracy and precision.
+We chose to test a depth-3 decision tree classifier because it can handle the graph features we use as inputs to the base learning algorithm and can split on the shortest path algorithms relatively quickly. Further, a decision tree classifier has the unique benefit of being easy-to-use and user-friendly. An emergency responder would only need to input his starting point and his destination in order to use this classifier. Though, we recognize that a downside of this approach is the necessity of knowing the features of a graph in order to run this classifier, features for graphs that represent road networks in urban areas can be precomputed and provided to the responders in a format that is easy to understand. This works because the only change to the graphs would be changes in the weighting of edges, which could represent something like traffic or time to get between two nodes. As a result of this analysis, we predicted that the decision tree classifier would be the fastest of all of our classifiers. We further tested a boosted version of the decision tree to improve accuracy and precision, but this loses the advantage that it is easily human readable.
 
 \section{Discussion}
 
-We sampled four total variations of SVM and decision tree classifiers, and metrics for their learning accuracy precision, and recall can be found in the next section. For each classifier, we implemented GridSearch to determine the optimal parameters, which are again specified below. However, while GridSearch worked to optimize the test accuracy of each classifier, it resulted in a sacrifice in recall score in some cases, meaning that our classifier always predicted a single algorithm. As a result, in the case of the boosted decision tree and the SVM with a radial basis function kernel, we manually adjusted the parameters to find a classifier with the greatest consolidated accuracy, precision, and recall scores.
+We sampled four total variations of SVM and decision tree classifiers, and metrics for their learning accuracy precision, and recall can be found in the next section. For each classifier, we implemented GridSearch to determine the optimal parameters, which are again specified below. However, while GridSearch worked to optimize the test accuracy of each classifier, it resulted in too high a recall score in some cases, meaning that our classifier always predicted a single algorithm ($A\star$). As a result, in the case of the boosted decision tree and the SVM with a radial basis function kernel, we manually adjusted the parameters to find a classifier with the greatest consolidated accuracy, precision, and recall scores.
 
 \subsection{Error Rates}
 
@@ -133,7 +136,7 @@ ROC curves demonstrate the ability of a classifier to effectively separate input
 
 \includegraphics[width=8.5cm]{ROC}
 
-Figure 2 below represents the ROC curve given the manually optimized parameters for our SVM, decision tree, and boosted decision tree classifiers. Once these parameters were manually adjusted to improve test recall for the AdaBoost and SVM classifiers, it is clear that the depth-3 decision tree has the highest accuracy. However, the AdaBoost and SVM classifiers with manually adjusted parameters are viewed as more effective classifiers than their GridSearch-optimized counterparts because they are more discriminating in instances, as reflected in the their lower recall scores.
+Figure 2 below represents the ROC curve given the manually optimized parameters for our SVM, decision tree, and boosted decision tree classifiers. Once these parameters were manually adjusted to reduce test recall for the AdaBoost and SVM classifiers, it is clear that the depth-3 decision tree has the highest accuracy. However, the AdaBoost and SVM classifiers with manually adjusted parameters are viewed as more effective classifiers than their GridSearch-optimized counterparts because they are more discriminating in instances, as reflected in the their lower recall scores.
 
 \includegraphics[width=8.5cm]{ROC2}
 
@@ -143,11 +146,11 @@ The full accuracy, precision, and recall metrics for each of our classifiers are
 
 \subsection{Experimental Results}
 
-Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. This classifier had a 72\% accuracy and predicted a shortest path algorithm in 0.00025 seconds, 
+Having optimized the accuracy, precision, and recall ratios of our classifiers, we found that a depth-3 decision tree had a lower prediction time than did the SVM classifier and, by definition, the AdaBoost classifier, meaning that it separated test instances more quickly than our other chosen classifiers. This classifier had a 72\% accuracy and predicted a shortest path algorithm in 0.00025 seconds,
 
 \section{Algorithm Preference}
 
-Given that the depth-3 decision tree had the strongest performance in terms of both accuracy, as well as speed, of our sampled classifiers even given a range of input parameters, we used this classifier to determine algorithm preference. The visualized decision tree is given below. 
+Given that the depth-3 decision tree had the strongest performance in terms of both accuracy, as well as speed, of our sampled classifiers even given a range of input parameters, we used this classifier to determine algorithm preference. The visualized decision tree is given below.
 
 \includegraphics[width=8.5cm]{dtree_vis}
 
@@ -155,25 +158,25 @@ Given that the depth-3 decision tree had the strongest performance in terms of b
 
 A decision tree with depth 3 was shown to most accurately and most quickly predict the appropriate shortest path algorithm for a given traffic-weighted road network with an accuracy of $72\%$ and a running time of 0.00025 seconds. However, we found that the composition of our training and test input graphs were relatively similar in composition, meaning that the classifier had the most "practice" and greatest likelihood with graphs appropriate for the standard $A\star$ algorithm. Although the size of our dataset was relatively large to ensure diversity in the input dataset, we were constrained by the running time of the preprocessing algorithms in increasing the size of the dataset. Further, we also were constrained by the information contained within our datasets. The standard .GML file format for road networks is independent of position, meaning that we were unable to determine how variations in the input heuristics of the $A\star$ algorithm might affect the accuracy, precision, and/or recall of this algorithm.
 
-Future research in this area may benefit from a larger, more data-rich, and more diverse set of graphs to train on, perhaps enabled by greater processing speed. 
+Future research in this area may benefit from a larger, more data-rich, and more diverse set of graphs to train on, perhaps enabled by greater processing power.
 
 \section{Conclusions}
 
-A decision tree with depth 3 was shown to most accurately and most quickly predict the appropriate shortest path algorithm for a given traffic-weighted road network. Using a decision tree may be especially relevant for our target end user of emergency response teams, as decision trees are highly visual and user-friendly. 
+A decision tree with depth 3 was shown to most accurately and most quickly predict the appropriate shortest path algorithm for a given traffic-weighted road network. Using a decision tree may be especially relevant for our target end user of emergency response teams, as decision trees are highly visual and user-friendly.
 
 \bibliography{final_paper}
 \bibliographystyle{icml2014}
 
-\end{document} 
+\end{document}
 
 
 % This document was modified from the file originally made available by
 % Pat Langley and Andrea Danyluk for ICML-2K. This version was
-% created by Lise Getoor and Tobias Scheffer, it was slightly modified  
-% from the 2010 version by Thorsten Joachims & Johannes Fuernkranz, 
-% slightly modified from the 2009 version by Kiri Wagstaff and 
-% Sam Roweis's 2008 version, which is slightly modified from 
-% Prasad Tadepalli's 2007 version which is a lightly 
-% changed version of the previous year's version by Andrew Moore, 
-% which was in turn edited from those of Kristian Kersting and 
+% created by Lise Getoor and Tobias Scheffer, it was slightly modified
+% from the 2010 version by Thorsten Joachims & Johannes Fuernkranz,
+% slightly modified from the 2009 version by Kiri Wagstaff and
+% Sam Roweis's 2008 version, which is slightly modified from
+% Prasad Tadepalli's 2007 version which is a lightly
+% changed version of the previous year's version by Andrew Moore,
+% which was in turn edited from those of Kristian Kersting and
 % Codrina Lauth. Alex Smola contributed to the algorithmic style files

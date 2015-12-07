@@ -3,44 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: final_paper.aux
 The style file: icml2014.bst
 Database file #1: final_paper.bib
-You've used 3 entries,
+Warning--empty journal in Himsolt
+Warning--empty year in Himsolt
+Warning--empty year in Himsolt
+You've used 5 entries,
             2773 wiz_defined-function locations,
-            615 strings with 5302 characters,
-and the built_in function-call counts, 1207 in all, are:
-= -- 104
-> -- 52
-< -- 3
-+ -- 18
-- -- 15
-* -- 91
-:= -- 191
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 14
-chr.to.int$ -- 3
-cite$ -- 6
-duplicate$ -- 60
-empty$ -- 111
-format.name$ -- 22
-if$ -- 252
+            627 strings with 5467 characters,
+and the built_in function-call counts, 1886 in all, are:
+= -- 167
+> -- 72
+< -- 6
++ -- 26
+- -- 21
+* -- 130
+:= -- 298
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 23
+chr.to.int$ -- 5
+cite$ -- 13
+duplicate$ -- 100
+empty$ -- 173
+format.name$ -- 30
+if$ -- 397
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 4
-newline$ -- 23
-num.names$ -- 12
-pop$ -- 25
+missing$ -- 5
+newline$ -- 33
+num.names$ -- 20
+pop$ -- 45
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 17
 quote$ -- 0
-skip$ -- 45
+skip$ -- 72
 stack$ -- 0
-substring$ -- 42
-swap$ -- 3
-text.length$ -- 0
+substring$ -- 58
+swap$ -- 8
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 0
-while$ -- 11
+type$ -- 50
+warning$ -- 3
+while$ -- 19
 width$ -- 0
-write$ -- 46
+write$ -- 71
+(There were 3 warnings)

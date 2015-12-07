@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,6 +17,17 @@ Flach, P.
 \newblock \emph{Machine Learning: The Art and Science of Algorithms that Make
   Sense of Data}.
 \newblock Cambridge University Press, 1st edition, 2012.
+
+\bibitem[Himsolt()]{Himsolt}
+Himsolt, M.
+\newblock Gml: A portable graph file format.
+\newblock pp.\  1--8.
+
+\bibitem[Newman(2013)]{Newman13}
+Newman, M.
+\newblock Network data.
+\newblock Technical report, Computer Science Department, University of
+  Michigan, Ann Arbor, MI, 2013.
 
 \bibitem[Zhan \& Noon(1998)Zhan and Noon]{Zhan98}
 Zhan, F.B. and Noon, C.E.
