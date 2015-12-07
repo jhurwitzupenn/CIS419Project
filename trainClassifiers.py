@@ -3,6 +3,7 @@ from sklearn import metrics
 from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.grid_search import GridSearchCV
+import matplotlib.pyplot as plt
 import numpy as np
 import time
 # from sklearn.externals.six import StringIO
@@ -29,7 +30,7 @@ def SVM(X, Y, XTest, YTest):
                    'gamma': gammaList,
                    'kernel': ['rbf', 'sigmoid', 'linear']}]
     # grid search over these to find parameters
-    rbf_grid = GridSearchCV(SVC(), param_grid=param_grid)
+    rbf_grid = GridSearchCV(SVC(probability=True), param_grid=param_grid)
     # fit the models
     rbf_grid.fit(X, Y)
 
@@ -67,6 +68,14 @@ def SVM(X, Y, XTest, YTest):
     print "SVM RBF test accuracy Score: " + str(rbf_accuracy_test)
     print "SVM RBF test precision Score: " + str(rbf_precision_test)
     print "SVM RBF test recall Score: " + str(rbf_recall_test)
+
+    print "Creating ROC curve"
+    y_true = YTest
+    y_score = rbf_grid.predict_proba(XTest)
+    fprSVM, trpSVM, _ = metrics.roc_curve(y_true=y_true,
+                                          y_score=y_score[:, 0],
+                                          pos_label=0)
+    plt.plot(fprSVM, trpSVM, 'b-', label='SVM')
 
 
 def DTree(X, Y, XTest, YTest):
@@ -116,6 +125,14 @@ def DTree(X, Y, XTest, YTest):
     print "DT test precision Score: " + str(dt_precision_test)
     print "DT test recall Score: " + str(dtree_recall_test)
 
+    print "Creating ROC curve"
+    y_true = YTest
+    y_score = tree_grid.predict_proba(XTest)
+    fprSVM, trpSVM, _ = metrics.roc_curve(y_true=y_true,
+                                          y_score=y_score[:, 0],
+                                          pos_label=0)
+    plt.plot(fprSVM, trpSVM, 'r-', label='DT')
+
 
 def AdaBoost(X, Y, XTest, YTest):
     print '-----------------------------------------------------'
@@ -160,45 +177,21 @@ def AdaBoost(X, Y, XTest, YTest):
     print "DT test precision Score: " + str(dt_precision_test)
     print "DT test recall Score: " + str(dtree_recall_test)
 
+    print "Creating ROC curve"
+    y_true = YTest
+    y_score = tree_grid.predict_proba(XTest)
+    fprSVM, trpSVM, _ = metrics.roc_curve(y_true=y_true,
+                                          y_score=y_score[:, 0],
+                                          pos_label=0)
+    plt.plot(fprSVM, trpSVM, 'c-', label='ADA')
 
-def makePredictions(X, Y, rbf_model, sig_model, dtree_model):
-    print "Predicting with the SVM RBF model..."
-    rbf_predict_time = time.time()
-    Ypred_rbf = rbf_model.predict(X)
-    rbf_predict_time = time.time() - rbf_predict_time
 
-    print "Predicting with the SVM Sigmoid model..."
-    sig_predict_time = time.time()
-    Ypred_sig = sig_model.predict(X)
-    sig_predict_time = time.time() - sig_predict_time
-
-    print "Predicting with the SVM Sigmoid model..."
-    dtree_predict_time = time.time()
-    Ypred_dtree = sig_model.predict(X)
-    dtree_predict_time = time.time() - dtree_predict_time
-
-    rbf_accuracy = metrics.accuracy_score(Y, Ypred_rbf)
-    sig_accuracy = metrics.accuracy_score(Y, Ypred_sig)
-    dtree_accuracy = metrics.accuracy_score(Y, Ypred_dtree)
-    rbf_precision = metrics.precision_score(Y, Ypred_rbf, average='macro')
-    sig_precision = metrics.precision_score(Y, Ypred_sig, average='macro')
-    dtree_precision = metrics.precision_score(Y, Ypred_dtree, average='macro')
-    rbf_recall = metrics.recall_score(Y, Ypred_rbf, average='macro')
-    sig_recall = metrics.recall_score(Y, Ypred_sig, average='macro')
-    dtree_recall = metrics.recall_score(Y, Ypred_dtree, average='macro')
-
-    print "SVM RBF Prediction time: " + str(rbf_predict_time)
-    print "SVM Sigmoid Prediction time: " + str(sig_predict_time)
-    print "DecisionTree Prediction time: " + str(dtree_predict_time)
-
-    print "SVM RBF Accuracy Score: " + str(rbf_accuracy)
-    print "SVM Sigmoid Accuracy Score: " + str(sig_accuracy)
-    print "DecisionTree Accuracy Score: " + str(dtree_accuracy)
-
-    print "SVM RBF Precision Score: " + str(rbf_precision)
-    print "SVM Sigmoid Precision Score: " + str(sig_precision)
-    print "DecisionTree Precision Score: " + str(dtree_precision)
-
-    print "SVM RBF Recall Score: " + str(rbf_recall)
-    print "SVM Sigmoid Recall Score: " + str(sig_recall)
-    print "DecisionTree Recall Score: " + str(dtree_recall)
+def BuildROCs():
+    plt.title('Receiver Operating Characteristic')
+    plt.legend(loc='lower right')
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlim([-0.1, 1.2])
+    plt.ylim([-0.1, 1.2])
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.savefig('ROC.pdf')

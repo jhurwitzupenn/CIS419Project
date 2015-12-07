@@ -20,6 +20,6 @@ print "Standardizing featuresTest"
 XTest = (XTest - mean) / std
 
 trainClassifiers.SVM(X, Y, XTest, YTest)
-# # trainClassifiers.SVMSig(X, Y, X, Y)
 trainClassifiers.DTree(X, Y, XTest, YTest)
 trainClassifiers.AdaBoost(X, Y, XTest, YTest)
+trainClassifiers.BuildROCs()
