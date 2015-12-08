@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 18:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 DEC 2015 19:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,7 +375,23 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 66.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+
+Package natbib Warning: Citation `Zhan98' on page 1 undefined on input line 72.
+
+
+
+Package natbib Warning: Citation `Blackwell02' on page 1 undefined on input lin
+e 79.
+
+
+Package natbib Warning: Citation `Himsolt' on page 1 undefined on input line 85
+.
+
+
+Package natbib Warning: Citation `Newman13' on page 1 undefined on input line 8
+5.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -389,94 +405,148 @@ Underfull \hbox (badness 1248) in paragraph at lines 87--88
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2495) has occurred while \output is active []
 
  [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<ROC.png, id=42, 871.255pt x 656.4525pt>
+<ROC.png, id=34, 871.255pt x 656.4525pt>
 File: ROC.png Graphic file (type png)
  <use ROC.png>
-Package pdftex.def Info: ROC.png used on input line 137.
+Package pdftex.def Info: ROC.png used on input line 141.
 (pdftex.def)             Requested size: 241.84842pt x 182.2128pt.
-
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 137--138
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./ROC.png>] <ROC2.png, id=54, 840.13875pt x 647.41875pt>
-File: ROC2.png Graphic file (type png)
- <use ROC2.png>
-Package pdftex.def Info: ROC2.png used on input line 141.
-(pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
 Overfull \hbox (6.97092pt too wide) in paragraph at lines 141--142
 [][] 
  []
 
-<tables.png, id=55, 344.28625pt x 624.3325pt>
-File: tables.png Graphic file (type png)
- <use tables.png>
-Package pdftex.def Info: tables.png used on input line 145.
-(pdftex.def)             Requested size: 241.84842pt x 438.57307pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+<ROC2.png, id=45, 840.13875pt x 647.41875pt>
+File: ROC2.png Graphic file (type png)
+ <use ROC2.png>
+Package pdftex.def Info: ROC2.png used on input line 145.
+(pdftex.def)             Requested size: 241.84842pt x 186.36359pt.
 
 Overfull \hbox (6.97092pt too wide) in paragraph at lines 145--146
 [][] 
  []
 
+<table1.png, id=46, 435.6275pt x 166.6225pt>
+File: table1.png Graphic file (type png)
+ <use table1.png>
+Package pdftex.def Info: table1.png used on input line 149.
+(pdftex.def)             Requested size: 241.84842pt x 92.502pt.
+
+<table2.png, id=47, 436.63126pt x 157.58875pt>
+File: table2.png Graphic file (type png)
+ <use table2.png>
+Package pdftex.def Info: table2.png used on input line 150.
+(pdftex.def)             Requested size: 241.84842pt x 87.28725pt.
+
+<table3.png, id=48, 431.6125pt x 141.52875pt>
+File: table3.png Graphic file (type png)
+ <use table3.png>
+Package pdftex.def Info: table3.png used on input line 151.
+(pdftex.def)             Requested size: 241.84842pt x 79.30305pt.
+
+<table4.png, id=49, 436.63126pt x 133.49875pt>
+File: table4.png Graphic file (type png)
+ <use table4.png>
+Package pdftex.def Info: table4.png used on input line 152.
+(pdftex.def)             Requested size: 241.84842pt x 73.94395pt.
+
+<table5.png, id=50, 436.63126pt x 155.58125pt>
+File: table5.png Graphic file (type png)
+ <use table5.png>
+Package pdftex.def Info: table5.png used on input line 153.
+(pdftex.def)             Requested size: 241.84842pt x 86.17531pt.
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 149--154
+[][]
+ []
+
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 149--154
+[]
+ []
+
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 149--154
+[]
+ []
+
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 149--154
+[]
+ []
+
+
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 149--154
+[] 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<dtree_vis.png, id=56, 396.48125pt x 389.455pt>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <./ROC2.png> <./tables.png>]
+<dtree_vis.png, id=51, 396.48125pt x 389.455pt>
 File: dtree_vis.png Graphic file (type png)
  <use dtree_vis.png>
-Package pdftex.def Info: dtree_vis.png used on input line 155.
+Package pdftex.def Info: dtree_vis.png used on input line 163.
 (pdftex.def)             Requested size: 241.84842pt x 237.5672pt.
 
-Overfull \hbox (6.97092pt too wide) in paragraph at lines 155--156
+Overfull \hbox (6.97092pt too wide) in paragraph at lines 163--164
 [][] 
  []
 
-(./final_paper.bbl
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <./ROC.png> <./ROC2.png> <./table1.png> <./table2.png> <./table3.png> <./ta
+ble4.png> <./table5.png>] (./final_paper.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
- [5 <./dtree_vis.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
- (./final_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 178.
+[5 <./dtree_vis.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
+ (./final_paper.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 178.
 Package rerunfilecheck Info: File `final_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 170.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 178.
  ) 
 Here is how much of TeX's memory you used:
- 6257 strings out of 493315
- 90847 string characters out of 6137904
- 194457 words of memory out of 5000000
- 9603 multiletter control sequences out of 15000+600000
+ 6278 strings out of 493315
+ 91137 string characters out of 6137904
+ 194284 words of memory out of 5000000
+ 9619 multiletter control sequences out of 15000+600000
  16012 words of font info for 30 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 33i,12n,45p,1678b,399s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 31i,12n,45p,1678b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_paper.pdf (5 pages, 532680 bytes).
+Output written on final_paper.pdf (5 pages, 882197 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
- 36 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 107 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
+ 37 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
